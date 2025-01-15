@@ -45,6 +45,8 @@ function Card() {
     return () => sent(); // Clean up the listener when the component unmounts
   },[])
 
+  console.log(message)
+
   if (isLoading) {
     return <div className='text-center'>Customising your letter tehee</div>;
   }
@@ -57,7 +59,7 @@ function Card() {
           <p className='text-4xl ml-12 text-white font-bold'> {SenderName} <br></br>sent you a flower!</p>
         </div>
 
-        <div style={{height: "100vh"}} className='bg-red-950 h-screen w-screen'>
+        <div style={{height: "100vh"}}>
           <Message Message={message?.Message}>
           </Message>      
         </div>
@@ -68,7 +70,6 @@ function Card() {
           photoMessage={photo?.PhotoMessage} 
           message={message?.Message} 
            >
-
           </Trial>
         </div>
 
@@ -80,13 +81,46 @@ function Card() {
             </Song>
         </div>
 
-        <div className="">
+        <div>
           <Image
           src={meme.MemeURL}
-          sender={Sender}
+          sender={SenderName}
           name={Name}>
           </Image>
         </div>
+
+        <div className="bg-red-950 flex flex-col items-center justify-center h-screen w-screen overflow-hidden">
+
+          <div className='flex mt-12 mb-2 p-4 bg-white/30 rounded-lg text-center text-white text-xl w-[80vw]'>
+            <p>{message?.Message}</p>
+          </div>
+
+          <div className='max-w-[80vw] flex justify-center items-center m-4 mb-12 space-x-6'>
+
+            <div className='flex flex-col items-center justify-center'>
+              <Spotify className='px-4 w-96' link = {song?.SongURL}/>
+              <p className='bg-white/30 text-white p-4 rounded-md max-w-96'> {song?.Songhehehaha}</p>
+            </div>
+
+          <div className='flex flex-col items-center justify-center text-white text-3xl text-center'>
+            <p>
+            <strong>From:</strong>{SenderName} <br />
+            <strong>To:</strong> {Name}
+            </p>
+            <img src={meme?.MemeURL} alt='img1' className='max-w-96 backdrop:shadow-lg rounded-3xl p-4 mt-10'/>
+          </div>
+
+            <div className='flex flex-col items-center justify-center'>
+              <img 
+              src={photo?.PhotoURL}
+              alt="img"
+              placeholder="blur"
+              className=' max-w-96 backdrop:shadow-lg p-4 m-4 rounded-3xl'/>
+              <p className='bg-white/30 text-white p-4 rounded-md text-center max-w-96'> {photo?.PhotoMessage}</p>
+            </div>
+          </div>
+        </div>
+
     </div>
   )
 }

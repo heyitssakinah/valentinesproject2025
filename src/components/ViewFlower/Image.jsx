@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
 export default function Image({src, name, sender}) {
-    const senderName = sender.split("_")[0]
+    const [click, setClick] = useState(false);
     // console.log(senderName)
    const container = useRef(null);
    const { scrollYProgress } = useScroll({
@@ -31,6 +31,7 @@ export default function Image({src, name, sender}) {
 
     return (
         <div className='bg-red-950 relative h-screen text-white text-5xl flex flex-col justify-center items-center overflow-hidden'>
+        {!click &&
         <div ref={container} className='h-screen absolute inset-0 z-20 flex justify-center items-center'>
             <motion.div 
             style={{ rotate, y: rise}} 
@@ -46,19 +47,28 @@ export default function Image({src, name, sender}) {
                <img src={src} alt='img2' className='scale-125'/>
             </motion.div>
             <motion.div style={{rotate: rotate, y: fall}} className="w-52">
-               <img src={src} className='scale-150'/>
+               <img src={src} className='scale-150  hover:scale-125 transition duration-100' onClick={() => setClick(true)}/>
             </motion.div>
         </div>
+    }
         <div className='flex absolute z-10 justify-center items-center'>
+        <div className='flex absoute z-10'>
+            <img src='/heart3.gif' className='m-1 scale-75'/>
+        </div>
             <p>
-            <strong>From:</strong> {senderName} <br />
+            <strong>From:</strong> {sender} <br />
             <strong>To:</strong> {name}
             </p>
             {/* <p>We hope you have a great day and enjoy your flowers. Please feel free to contact us if you need any help or guidance.</p> */}
+        <div className='flex absoute z-10'>
+            <img src='/heart3.gif' className='m-10 scale-75'/>
         </div>
+        </div>
+        { click &&
         <div className='flex absoute z-0'>
-            <img src='/heart3.gif' className=''/>
+            <img src='/heart1.gif' className='m-10 w-[100vw]'/>
         </div>
+        }   
         </div>
    )
 }
