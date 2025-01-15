@@ -22,7 +22,7 @@ export function CreateFlower() {
           
 
     return (
-        <div className="font-serif bg-gradient-to-tl from-red-500 via-pink-900 via 75% to-red-950 snap-y snap-mandatory overflow-hidden h-screen">
+        <div className="font-valiny bg-gradient-to-tl from-red-500 via-pink-900 via 75% to-red-950 snap-y snap-mandatory overflow-hidden h-screen">
              <div ref={proseRef} className='snap-center snap-always '>
             <WriteProse handleScroll={handleScroll} toRef={memeRef} Name={Name} submitAll={submitAll} ></WriteProse>
              </div>

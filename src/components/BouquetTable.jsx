@@ -23,10 +23,10 @@ function BouquetTable({filteredBouquet}) {
     const currUser = `${currentUser.displayName}_${currentUser.uid}`
 
     return (
-        <div className='flex justify-center items-center w-screen'>
-            <table className='border-2 w-[90%] sm:w-[75%] border-white'>
+        <div className='flex justify-center items-center w-screen font-valiny mb-8'>
+            <table className='border-2 w-[90%] sm:w-[75%] shadow-xl border-mywhite '>
               <thead>
-                <tr className='text-center text-xs sm:text-base bg-slate-300 text-red-950'> 
+                <tr className='text-center font-bold text-xs sm:text-base bg-mywhite text-darkred'> 
                   <th className='py-1 '> Name </th>
                   <th className='py-1 '> Email </th>
                   <th className='py-1 '> Flowers Received </th>
@@ -38,7 +38,7 @@ function BouquetTable({filteredBouquet}) {
                   console.log('bool',Person.hasOwnProperty(currUser))
                   return (
                     <tr 
-                    key={Person.Name} className='group border-t bg-red-300 text-red-900 group'
+                    key={Person.Name} className='group border-t font-extrabold text-mywhite group'
                     onClick={ () => {
                       if (Person.hasOwnProperty(currUser)) {
                         alert("You have already sent a flower to this person.")
@@ -46,10 +46,10 @@ function BouquetTable({filteredBouquet}) {
                         navigate(`/createFlower/${Person.Name}`)
                       }}}
                       > 
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-pink-200/60'
+                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/60'
                       > {Person.Name} </td>
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-pink-200/60'>{Person.Email}</td>
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-pink-200/60'>{Person.Flowers}</td>
+                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/60'>{Person.Email}</td>
+                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/60'>{Person.Flowers}</td>
                     </tr>
                   );
                 })}

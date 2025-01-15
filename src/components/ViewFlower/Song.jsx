@@ -22,7 +22,7 @@ export default function Song({songURL, songMessage}) {
    }, [])
 
    const goRight = useTransform(scrollYProgress, [0, 0.3, 1], [-400, 0, 600])
-   const goRightM = useTransform(scrollYProgress, [0, 0.3, 1], [-300, 0, 500])
+   const goRightM = useTransform(scrollYProgress, [0, 0.3, 1], [-300, 100, 500])
 
     return (
         <div ref={container} className='bg-red-950 h-screen w-screen overflow-hidden flex flex-col justify-center'>
