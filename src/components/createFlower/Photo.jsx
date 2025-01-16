@@ -80,12 +80,12 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
 
 
   return (
-    <div className='flex flex-col items-center justify-around h-screen w-screen'>
+    <div className='flex flex-col items-center justify-around h-screen w-screen bg-myred'>
       {!triggerEmbed && (
         <div className='flex flex-col items-center -mt-24 sm:-mt-30'>
-        <h1 className='mt-14 mb-10 text-2xl sm:text-3xl text-white text-center mx-10' >Finally, Add Your Favourite Photo Together!</h1>
+        <h1 className='mt-14 mb-10 text-2xl sm:text-3xl text-mywhite text-center mx-10' >Finally, Add Your Favourite Photo Together!</h1>
           <FileUploader 
-            className='w-full h-full' 
+            className='w-full h-full text-mywhite' 
             setTriggerPopup={setTriggerPopup} 
             setImage={setImage} 
             handleClosePopup={hcp} 
@@ -104,11 +104,11 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
         triggerEmbed && (
           <>
             <div className='flex flex-col items-center w-screen h-screen'>
-              <h1 className='mt-14 mb-10 text-2xl sm:text-3xl text-white text-center mx-10' >You LOOK SO GOOD TOGETHER</h1>
+              <h1 className='mt-14 mb-10 text-2xl sm:text-3xl text-mywhite text-center mx-10' >You LOOK SO GOOD TOGETHER</h1>
               <img className='max-w-[60%] max-h-[40%] mx-20 mb-4' src={photoURL}/>
-              <div className='max-w-[80%] sm:max-w-[40%] bg-white/10 text-white py-3 rounded-2xl shadow-md px-6'>{message}</div>
+              <div className='max-w-[80%] sm:max-w-[40%] bg-mywhite/10 text-mywhite py-3 rounded-2xl shadow-md px-6'>{message}</div>
           <button
-            className="text-gray-200 hover:text-gray-400 mb-16 mt-4 underline"
+            className="text-mywhite hover:text-mywhite/50 mb-16 mt-4 underline"
             onClick={() => {
               setTriggerEmbed(false)
               setTriggerPopup(false)
@@ -119,12 +119,12 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
           <div className='flex w-full space-x-[30%] justify-center'>
             <button 
             onClick={() => handleScroll(toPrevRef)}
-            className='px-4 py-2 text-center text-white bg-red-700 rounded-md hover:bg-red-800'
+            className='px-4 py-2 text-center text-mywhite bg-red-700 rounded-md hover:bg-barnred'
             >Prev
             </button>
            <button
               onClick={handleSubmitPhoto}
-              className='px-4 py-2 text-center w-auto text-white bg-red-700 rounded-md hover:bg-red-800'
+              className='px-4 py-2 text-center w-auto text-mywhite bg-red-700 rounded-md hover:bg-barnred'
               >Next</button>
             </div>
             </div>

@@ -4,7 +4,7 @@ import Popup from '../Popup';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Confirm({Name, setSubmitAll, checkAllInputs}) {
+function Confirm({Name, setSubmitAll, checkAllInputs, handleScroll, toPrevRef}) {
   const [triggerPopup, setTriggerPopup] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function Confirm({Name, setSubmitAll, checkAllInputs}) {
 }
 console.log(checkAllInputs)
   return (
-    <div className='flex w-screen h-screen items-center justify-center'>
+    <div className='flex w-screen h-screen items-center justify-center bg-gradient-to-b from-myred to-darkred to-60%'>
       <div className=''>
       <button
         onClick={() => setTriggerPopup(true)}
@@ -43,6 +43,15 @@ console.log(checkAllInputs)
                 <p>Send flower confirms?</p>
                 <div className='flex mt-6'>
                 <button
+                  onClick={() => { 
+                    setTriggerPopup(false)
+                    handleScroll(toPrevRef)
+                  }}
+                  className="w-full px-4 py-2 text-red-800 font-medium rounded-lg"
+                >
+                  Wait go back
+                </button>
+                <button
                   onClick={() => {
                     setSubmitAll(true)
                     flowerUpdate()
@@ -51,14 +60,6 @@ console.log(checkAllInputs)
                   className="w-full px-4 py-2 text-red-800 font-medium rounded-lg"
                 >
                   Confirm
-                </button>
-                <button
-                  onClick={() => {
-                    setTriggerPopup(false)
-                  }}
-                  className="w-full px-4 py-2 text-red-800 font-medium rounded-lg"
-                >
-                  Wait go back
                 </button>
                 </div>
               </> 

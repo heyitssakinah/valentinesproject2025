@@ -103,7 +103,7 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
   })
 
   const handleSubmitSong = () => {
-    if(songDetails.track == '') {
+    if(songDetails.track === '') {
       alert('Please select a song');
     } else {
       handleScroll(toRef)
@@ -123,30 +123,30 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
   }
 
   return (
-    <div className='h-screen w-screen'>
+    <div className='h-screen w-screen bg-gradient-to-b from-darkred to-myred to-60%'>
     {!triggerEmbed && (
     <div className='flex flex-col items-center h-screen w-screen'>
-        <h1 className="mt-14 mb-10 text-2xl sm:text-3xl text-white">Link a Song For The Feels?</h1>
-          <div className='flex items-start border-1 backdrop-blur-sm bg-white/20 rounded-xl w-[75%] sm:w-[50%] text-left'>
+        <h1 className="mt-14 mb-10 text-2xl sm:text-3xl text-mywhite">Link a Song For The Feels?</h1>
+          <div className='flex items-start border-1 backdrop-blur-sm bg-mywhite/20 rounded-xl w-[75%] sm:w-[50%] text-left'>
             <input 
                 type='text' 
                 placeholder="I Love You, I'm Sorry Gracie Abrahms"
-                className='bg-transparent pl-5 py-4 w-full'
+                className='bg-transparent pl-5 py-4 w-full text-mywhite placeholder-mywhite/90'
                 onChange={(val) => setSearchInput(val.target.value)}/> 
             <button
                 onClick={Search}
-                className=" py-2 px-4 m-2 text-center text-white bg-red-700 rounded-md hover:bg-red-800"
+                className=" py-2 px-4 m-2 text-center text-mywhite bg-barnred rounded-md hover:bg-red-700"
             >Search</button>
           </div>
-          <div className='flex border-1 backdrop-blur-sm bg-black/20 rounded-xl w-[85%] md:w-[65%] h-[50%] overflow-scroll mt-6 '>
+          <div className='flex border-1 backdrop-blur-sm bg-transparent border-2 border-mywhite rounded-xl w-[85%] md:w-[65%] h-[50%] overflow-scroll mt-6 '>
             {/* LARGE SCREEN TABLE AHHHHH */}
             <div className='hidden md:block md:w-full'>
               <table className='w-full'>
-                <thead>
+                <thead className='bg-mywhite/70 sticky'>
                   <tr>
                     {/* <th className='w-0 -col-start-1'></th> */}
-                    <th className='py-5 backdrop-blur-sm flex-1 w-80 text-white'>Track</th>
-                    <th className='backdrop-blur-md text-white'>Artist</th>                  
+                    <th className='py-5 backdrop-blur-sm flex-1 w-80 text-myblack'>Track</th>
+                    <th className='backdrop-blur-md text-myblack'>Artist</th>                  
                   </tr>
                 </thead>
                 <tbody>
@@ -166,13 +166,13 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
                         {/* <div className='flex'> */}
                           {/* <td className='flex-none w-8 h-8'> */}
                           {/* </td> */}
-                          <td className='py-1 w-52 text-pink-200 text-left group-hover:text-pink-200/60'>
+                          <td className='py-1 w-52 text-mywhite text-left group-hover:bg-barnred'>
                             <div className='flex mt-2 mr-4 items-center'>
                               <img className='mx-4 w-14 h-14' src={track.album.images.map((img) => img.url)[0]}/>
                               <p>{track.name}</p>
                             </div>
                           </td>
-                          <td className='w-52 mx-4 text-pink-200 text-center group-hover:text-pink-200/60'>{track.artists.map((artist) => artist.name).join(", ")}</td>
+                          <td className='w-52 mx-4 text-mywhite text-center group-hover:bg-barnred '>{track.artists.map((artist) => artist.name).join(", ")}</td>
                         {/* </div> */}
                       </tr>
                     );
@@ -196,10 +196,10 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
                     }}
                       className='hover:backdrop-contrast-50 group'>
                         <div className='flex m-4 items-center'>
-                          <img className='w-[20%] h-[20%]' src={track.album.images.map((img) => img.url)[0]}/>
+                          <img className='w-[20%] h-[20%]' alt='album cover' src={track.album.images.map((img) => img.url)[0]}/>
                             <div>
-                              <p className='px-4 text-pink-200 group-hover:text-pink-200/60'>{track.name}</p>
-                              <p className='px-4 text-pink-200 text-xs group-hover:text-pink-200/60'>{track.artists.map((artist) => artist.name).join(", ")}</p>
+                              <p className='px-4 text-mywhite group-hover:bg-barnred'>{track.name}</p>
+                              <p className='px-4 text-mywhite text-xs group-hover:bg-barnred'>{track.artists.map((artist) => artist.name).join(", ")}</p>
                             </div>
                           </div>
                         </div>
@@ -215,7 +215,7 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
       handleSubmit={handleSubmit}
       setHandleClosePopup={sethcp}>
       <p className='text-lg mb-3'>Send a short message with the song:</p>
-      <p className='underline'>{songDetails.track} by {songDetails.artist}</p>
+      <p className='underline '>{songDetails.track} by {songDetails.artist}</p>
     </Popup>
 
     {triggerEmbed && (

@@ -1,9 +1,9 @@
 
 function InputBox( { styleType, onChange }) {
     const styles = {
-        paragraph: 'flex border-1 items-start backdrop-blur-sm bg-white/20 rounded-xl px-5 pt-3 w-[75%] xl:w-[50%] h-[50%] text-left',
-        poem: ' flex border-1 items-start backdrop-blur-sm bg-white/20 rounded-xl px-5 pt-3 w-[75%] md:w-[50%] h-[35%] text-left',
-        other:' flex border-2 backdrop-blur-sm bg-white/20 rounded-xl px-5 pt-2 w-[100%] h-32 text-left'
+        paragraph: 'flex text-mywhite border-1 items-start backdrop-blur-sm bg-white/20 rounded-xl px-5 pt-3 w-[75%] xl:w-[50%] h-[50%] text-left placeholder-mywhite/70',
+        poem: ' flex text-mywhite border-1 items-start backdrop-blur-sm bg-white/20 rounded-xl px-5 pt-3 w-[75%] md:w-[50%] h-[35%] text-left placeholder-mywhite/70',
+        other:' flex border-2 border-myblack backdrop-blur-sm bg-mywhite/20 rounded-xl px-5 pt-2 w-[100%] h-32 text-left placeholder-myblack/70 '
     }
 
     const placeholders = {
@@ -18,14 +18,14 @@ function InputBox( { styleType, onChange }) {
         {styleType === "other" ? (
         <textarea
             className={styles[styleType]}
-            maxLength="200"
+            maxLength="100"
             placeholder={placeholders[styleType]}
             onChange={onChange}
         />
         ) : (
         <textarea
             className={styles[styleType]}
-            maxLength="800"
+            maxLength="1000"
             placeholder={placeholders[styleType]}
             onChange={onChange}
         />
