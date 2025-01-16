@@ -17,7 +17,7 @@ export default function Message({Message}) {
 
     const { scrollYProgress } = useScroll({ 
         target: container,
-        offset: ["start end", "start 0.5"]
+        offset: ["start end", "start 0.3"]
     })
     console.log(Message)
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])

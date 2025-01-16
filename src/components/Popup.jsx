@@ -12,7 +12,7 @@ function Popup({handleSubmit, trigger, children, setTrigger, setHandleClosePopup
 
   return (trigger) ? (
     <div className="fixed top-0 left-0 w-screen h-screen bg-black/50 flex justify-center items-center">
-    <div className="bg-mywhite rounded-lg shadow-lg p-6 w-[80%] sm:w-[90%] max-w-md text-center">
+    <div className="bg-mywhite rounded-lg shadow-lg p-6 w-[80%] sm:w-[90%] max-w-md text-center text-myblack">
     <h3 className='mb-5'> {children} </h3>
         <InputBox 
             styleType={'other'}

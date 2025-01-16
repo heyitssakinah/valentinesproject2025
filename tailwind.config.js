@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       colors: {
         darkred: "#662524ff",
-        barnred: "#7D130Fff",
-        myred: "#BC1F24ff",
+        barnred: "#6E130F",
+        myred: "#95282B",
         dimred: "#CF5156ff",
         lightred: "#E6656Bff",
         mywhite: " #F8D5C4ff",

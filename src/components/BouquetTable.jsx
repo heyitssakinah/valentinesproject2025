@@ -1,10 +1,7 @@
 
-import { getDatabase } from 'firebase/database';
-import { Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 import { useAuth } from '../contexts/authContext';
-import { app } from '../configuration';
-import { ref, get, child } from 'firebase/database';
 function BouquetTable({filteredBouquet}) {
   const [prevMessageExists, setPrevMessageExists] = useState(false)
   const { currentUser } = useAuth();
@@ -23,7 +20,7 @@ function BouquetTable({filteredBouquet}) {
     const currUser = `${currentUser.displayName}_${currentUser.uid}`
 
     return (
-        <div className='flex justify-center items-center w-screen font-valiny mb-8'>
+        <div className='flex justify-center items-center w-screen font-valiny mb-8 overflow-hidden'>
             <table className='border-2 w-[90%] sm:w-[75%] shadow-xl border-mywhite '>
               <thead>
                 <tr className='text-center font-bold text-xs sm:text-base bg-mywhite text-darkred'> 
@@ -46,10 +43,10 @@ function BouquetTable({filteredBouquet}) {
                         navigate(`/createFlower/${Person.Name}`)
                       }}}
                       > 
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/60'
+                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/30'
                       > {Person.Name} </td>
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/60'>{Person.Email}</td>
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/60'>{Person.Flowers}</td>
+                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/30'>{Person.Email}</td>
+                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/30'>{Person.Flowers}</td>
                     </tr>
                   );
                 })}

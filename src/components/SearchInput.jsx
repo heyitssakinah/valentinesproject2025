@@ -6,7 +6,7 @@ function SearchInput({handleSearch}) {
                 type='text' 
                 placeholder='Search name or email' 
                 onChange={handleSearch} 
-                className='border-gray-600 w-[30vw] placeholder:text-sm placeholder:italic mt-36 mb-6 sm:mt-20 placeholder:text-darkred/70 placeholder:font-valiny block py-2 pl-3 pr-3 text-center border-1 rounded-md bg-mywhite shadow-lg '/> 
+                className='border-mywhite border-2 w-[30vw] bg-transparent placeholder:text-sm placeholder:italic mt-36 mb-6 sm:mt-20 placeholder:text-mywhite/70 placeholder:font-valiny block py-2 pl-3 pr-3 text-center border-1 rounded-3xl shadow-lg '/> 
           </div>
  
     );

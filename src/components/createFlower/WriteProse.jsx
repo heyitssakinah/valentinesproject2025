@@ -45,16 +45,16 @@ export function WriteProse({Name, submitAll, handleScroll, toRef}) {
     }, [submitAll])
 
     return (
-        <div className='flex flex-col items-center h-screen w-screen'>
-                <h1 className="mt-16 mb-8 sm:mb-10 text-2xl md:text-3xl mx-4 text-white text-center">Send a Flower to { Name }</h1>
+        <div className='flex flex-col items-center h-screen w-screen bg-darkred'>
+                <h1 className="mt-16 mb-8 sm:mb-10 text-2xl md:text-3xl mx-4 text-mywhite text-center">Send a Flower to { Name }</h1>
                 <div className='flex space-x-6 sm:pl-5 m-5 w-[50%]'>
                     <button
                         onClick={() => handleOptionChange('paragraph')}
-                        className={`px-4 py-2 text-center ${option === 'paragraph' ? 'text-gray-200 underline' : 'text-gray-200/25 hover:text-gray-400 '}`}
+                        className={`px-4 py-2 text-center ${option === 'paragraph' ? 'text-mywhite underline' : 'text-mywhite/25 hover:text-gray-400 '}`}
                         >Paragraph</button>
                     <button
                         onClick={ () => handleOptionChange('poem')}
-                        className={`px-4 py-2 text-center ${option === 'poem' ? 'text-gray-200 underline' : 'text-gray-200/25 hover:text-gray-400 '}`}
+                        className={`px-4 py-2 text-center ${option === 'poem' ? 'text-mywhite underline' : 'text-mywhite/25 hover:text-gray-400 '}`}
                         >Poem</button>
                 </div>
                 <InputBox 
@@ -63,7 +63,7 @@ export function WriteProse({Name, submitAll, handleScroll, toRef}) {
                 />
                 <button
                 onClick={handleSubmit}
-                className='px-4 py-2 text-center ml-[40%] mt-12 text-white bg-red-700 rounded-md hover:bg-red-800'
+                className='px-4 py-2 text-center ml-[40%] mt-12 text-white bg-red-800 rounded-md hover:bg-barnred'
                 >Next!</button>
         </div>
     )

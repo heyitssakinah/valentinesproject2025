@@ -20,7 +20,7 @@ export default function Trial({photourl, photoMessage}) {
     }, [])
 
   return (
-    <main ref={container} className="relative h-[200vh] bg-slate-400">
+    <main ref={container} className="relative h-[200vh] bg-mywhite">
         <Section1 scrollYProgress={scrollYProgress} url={photourl} photoMessage={photoMessage}/>
         <Section2 scrollYProgress={scrollYProgress} url={photourl} />
     </main>
