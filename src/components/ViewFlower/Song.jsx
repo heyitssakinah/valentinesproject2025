@@ -25,12 +25,12 @@ export default function Song({songURL, songMessage}) {
    const goRightM = useTransform(scrollYProgress, [0, 0.3, 1], [-300, 100, 500])
 
     return (
-        <div ref={container} className='bg-red-950 h-screen w-screen overflow-hidden flex flex-col justify-center'>
+        <div ref={container} className='bg-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
             <motion.div style={{x: goRight}} className="">
                 <Spotify wide className='h-56 w-[70%] px-4' link = {songURL}/>
             </motion.div>
             <motion.div style={{x: goRightM}} className=''>
-                <div className='text-4xl ml-12 text-white text-center font-bold w-[40%]'>{songMessage}</div>
+                <div className='text-4xl ml-12 text-darkred text-center font-bold w-[50%]'>{songMessage}</div>
             </motion.div>
         </div>
    )

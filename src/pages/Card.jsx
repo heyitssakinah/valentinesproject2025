@@ -1,6 +1,6 @@
 import { getDatabase } from 'firebase/database';
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { onValue, ref } from 'firebase/database';
 import { app } from '../configuration';
 import { Spotify } from 'react-spotify-embed';
@@ -12,8 +12,7 @@ import Image from '../components/ViewFlower/Image';
 function Card() {
   const { Name, Sender } = useParams();
   const SenderName = Sender.split('_')[0]
-  console.log(Name, Sender, SenderName)
-
+  const navigate = useNavigate();
   const db = getDatabase(app)
   const dataref = ref(db, `Bouquets/${Name}/${Sender}`)
 
@@ -52,7 +51,7 @@ function Card() {
   }
 
   return (
-    <div className='font-serif bg-red-950 w-screen h-screen'>
+    <div className='font-serif bg-gradient-to-b to-darkred via-30% via-barnred from-red-950 w-screen h-screen'>
         
         <div className="flex items-center justify-center h-screen w-screen">
           <img src={photo?.PhotoURL} className='max-w-96'/>
@@ -89,35 +88,49 @@ function Card() {
           </Image>
         </div>
 
-        <div className="bg-red-950 flex flex-col items-center justify-center h-screen w-screen overflow-hidden">
+        <div className="bg-myred flex flex-col items-center justify-center h-screen w-screen overflow-hidden">
 
-          <div className='flex mt-12 mb-2 p-4 bg-white/30 rounded-lg text-center text-white text-xl w-[80vw]'>
+          <div className='max-w-[85vw] h-[90vh] flex justify-center items-center m-4 space-x-6'>
+
+          <div className='flex mt-12 mb-2 p-8 border-2 border-lightred rounded-lg text-center text-mywhite text-xl w-[35vw]'>
             <p>{message?.Message}</p>
           </div>
 
-          <div className='max-w-[80vw] flex justify-center items-center m-4 mb-12 space-x-6'>
-
-            <div className='flex flex-col items-center justify-center'>
-              <Spotify className='px-4 w-96' link = {song?.SongURL}/>
-              <p className='bg-white/30 text-white p-4 rounded-md max-w-96'> {song?.Songhehehaha}</p>
+          <div className='flex flex-col space-y-5'>
+            <div className='flex items-center justify-center space-x-4'> 
+                <div className='flex flex-col items-center justify-center'>
+                <img 
+                src={photo?.PhotoURL}
+                alt="img"
+                placeholder="blur"  
+                className=' max-w-80 max-h-64 backdrop:shadow-lg mx-4 mb-4 rounded-2xl'/>
+                <p className='underline text-mywhite p-4 max-w-72 text-center'> {photo?.PhotoMessage}</p>
+              </div>
+              <div className=''>
+                <img src={meme?.MemeURL} alt='img1' className='max-w-72 backdrop:shadow-lg rounded-3xl p-4'/>
+                 <div className='text-mywhite text-xl text-center'>
+                <p>
+                  <strong>From: </strong>{SenderName} <br />
+                  <strong>To: </strong>{Name}
+                </p>
+              </div>
+              </div>
             </div>
+            <div className='flex flex-col items-center justify-center'> 
+              <Spotify className='px-4 h-44 w-[42vw]' link = {song?.SongURL}/>
+              <div className='underline text-mywhite w-[35vw] text-center'> {song?.Songhehehaha}</div>
+            </div>
+              <button  
+                onClick={() => navigate(`/Bouquet/${Name}#cardsRef`)}
+                className=' mt-4 ml-[80%] text-xs sm:text-base px-4 py-2 hover:text-darkred hover:bg-mywhite shadow-xl rounded-md w-40 text-mywhite bg-darkred'>
+              Back to Bouquet</button>
 
-          <div className='flex flex-col items-center justify-center text-white text-3xl text-center'>
-            <p>
-            <strong>From:</strong>{SenderName} <br />
-            <strong>To:</strong> {Name}
-            </p>
-            <img src={meme?.MemeURL} alt='img1' className='max-w-96 backdrop:shadow-lg rounded-3xl p-4 mt-10'/>
           </div>
 
-            <div className='flex flex-col items-center justify-center'>
-              <img 
-              src={photo?.PhotoURL}
-              alt="img"
-              placeholder="blur"
-              className=' max-w-96 backdrop:shadow-lg p-4 m-4 rounded-3xl'/>
-              <p className='bg-white/30 text-white p-4 rounded-md text-center max-w-96'> {photo?.PhotoMessage}</p>
-            </div>
+      
+
+        
+            
           </div>
         </div>
 

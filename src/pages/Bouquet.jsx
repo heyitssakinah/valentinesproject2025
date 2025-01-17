@@ -1,19 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import ValentineWrapped from '../components/ViewFlower/ValentineWrapped';
 import Card from './Card';
 import { getDownloadURL } from 'firebase/storage';
 import { getStorage, listAll, ref as storRef } from 'firebase/storage';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 
 function Bouquet() {
     const { Name } = useParams();
-    console.log('name', Name)
     const [allImages, setAllImages] = useState([]);
     const navigate = useNavigate();
 
     const storage = getStorage();
     const storageRef = storRef(storage, `PersonalImages/${Name}`)
+
+    const location = useLocation();
+    const wrappedRef = useRef(null);
+    const lovedRef = useRef(null);
+    const cardsRef = useRef(null);
+
+
+  useEffect(() => {
+    // Check if there's a hash in the URL and scroll to the element with that ID
+    if (location.hash) {
+      const section = document.querySelector(location.hash);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
     useEffect(() => {
         const fetchImages = async () => {
             try {
@@ -36,31 +54,58 @@ function Bouquet() {
                 console.log('error fetching images', error)}
         }
         fetchImages();
-},[]);
+},[allImages, location]);
 
-const wrappedRef = useRef(null);
-const lovedRef = useRef(null);
-const cardsRef = useRef(null);
-
+const variant1 = {
+    animate: {
+        opacity: [0, 1],
+        transition: { duration: .5,},
+        y: [80,0]
+    }}
+const variant2 = {
+    animate: {
+        opacity: [0, 1],
+        y: [60,0],
+        transition: { duration: .5, delay: .5},
+    }}
 // console.log(getMetadata(storageRef))
   return (
-    <div className='font-serif bg-gradient-to-tl from-red-950 via-pink-900 via 75% to-red-500 snap-y snap-mandatory overflow-y-scroll w-screen h-screen'>
+    <div className='font-serif bg-gradient-to-tl from-darkred via-myred via-30% to-lightred snap-y snap-mandatory overflow-y-scroll w-screen h-screen'>
         <div className="flex flex-col items-center justify-center h-screen w-screen text-center snap-center snap-always">
-            <p className="text-4xl sm:text-7xl font-black text-white m-5"> HAPPY VALENTINE <br></br> {Name} </p>
+            <motion.p 
+            className="text-4xl shadow-myblack text-shadow sm:text-8xl font-black text-mywhite m-5"
+            variants={variant1}
+            whileInView="animate"
+            viewport={{
+                once: true
+            }}
+            > HAPPY VALENTINE <br></br> </motion.p>
+            <motion.p 
+            className="text-4xl shadow-myblack text-shadow sm:text-8xl font-black text-mywhite m-5"
+            variants={variant2}
+            whileInView="animate"
+            
+            viewport={{
+                once: true
+            }}
+            >{Name} </motion.p>
         </div>
             
         <div ref={wrappedRef} className="snap-center h-screen w-screen ">
-            <ValentineWrapped></ValentineWrapped>
+            <ValentineWrapped
+            name={Name}
+            >
+
+            </ValentineWrapped>
         </div>
 
         <div ref={lovedRef} className="snap-center h-[100vh] w-screen ">
-            <div className="flex flex-col items-center justify-center h-screen text-center font-black text-white m-5">
-            <p className='sm:text-4xl text-2xl max-w-[80%] m-4'>A total of $$ people thought about you this valentines</p>
-            <p className='text-4xl  sm:text-7xl'>You are sooo cherished and loved</p>
+            <div className="flex flex-col items-center justify-center h-screen text-center font-black text-mywhite m-24">
+            <p className='text-4xl  sm:text-7xl'>You are sooo cherished and loved this valentines</p>
             </div>
         </div>
 
-        <div ref={cardsRef} className="snap-center h-screen p-12">
+        <div id='cardsRef' ref={cardsRef} className="snap-center h-screen p-12">
             <div className="snap-center h-screen flex flex-wrap justify-center overflow-scroll items-center gap-6 p-4">
             {allImages.map((image, index) => (
                 <div

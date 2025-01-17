@@ -23,10 +23,10 @@ export default function Message({Message}) {
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
     const moveLeft = useTransform(scrollYProgress, [0, 1], [300,0])
 return (
-  <div className='bg-red-950 h-screen w-screen flex items-center justify-center overflow-hidden '>
+  <div className='bg-gradient-to-b from-darkred to-barnred to-80% h-screen w-screen flex items-center justify-center overflow-hidden '>
   <motion.p 
   ref={container}         
-  className='px-40 text-3xl text-white whitespace-pre-wrap overflow-hidden text-center'
+  className='px-20 max-w-[60vw] text-2xl text-mywhite whitespace-pre-wrap overflow-hidden text-left'
   style={{opacity: opacity, x: moveLeft}}
   >
   {Message}
