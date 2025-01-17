@@ -32,7 +32,9 @@ export default function Trial({photourl, photoMessage}) {
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
     const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
     return (
-        <motion.div style={{scale, rotate, opacity}} className="sticky top-0 h-screen w-screen bg-red-950 font-serif text-4xl font-bold flex flex-col items-center justify-center text-white pb-[10vh]">
+        <motion.div 
+        style={{scale, rotate, opacity}} 
+        className="sticky top-0 h-screen w-screen bg-gradient-to-b to-darkred from-barnred font-serif text-4xl font-bold flex flex-col items-center justify-center text-mywhite pb-[10vh]">
           <div className="flex gap-12 items-center mx-24 ">
                 <div>
                 <p>{photoMessage}</p>
@@ -61,7 +63,7 @@ export default function Trial({photourl, photoMessage}) {
               src={url}
               alt="img"
               placeholder="blur"
-              className='max-h-[80vh] max-w-[72vw] border-double border-yellow-500 border-8 p-6'
+              className='max-h-[80vh] max-w-[72vw] border-double border-lightred border-8 p-6'
             />
           </motion.div>
         )

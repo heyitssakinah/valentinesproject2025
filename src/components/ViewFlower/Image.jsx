@@ -21,39 +21,39 @@ export default function Image({src, name, sender}) {
        requestAnimationFrame(raf)
    }, [])
 
-   const rotate = useTransform(scrollYProgress, [0, 1], ['0deg', '360deg'])
-   const rotate2 = useTransform(scrollYProgress, [0, 1], ['150deg', '360deg'])
-   const rotate3 = useTransform(scrollYProgress, [0, 1], ['1000deg', '360deg'])
-   const fall = useTransform(scrollYProgress, [.5, 1], [0, 200])
-   const rise = useTransform(scrollYProgress, [0.5, 1], [0, -200])
+   const rotate = useTransform(scrollYProgress, [0, .9], ['0deg', '360deg'])
+   const rotate2 = useTransform(scrollYProgress, [0, .8], ['150deg', '360deg'])
+   const rotate3 = useTransform(scrollYProgress, [0, .9], ['1000deg', '360deg'])
+   const fall = useTransform(scrollYProgress, [.5, .8], [0, 200])
+   const rise = useTransform(scrollYProgress, [0.5, .8], [0, -200])
 //    const goUpMain = useTransform(scrollYProgress, [0, 1], [-400, 0])
 //    const big = useTransform(scrollYProgress, [0, 1], [-400, 10])
 
     return (
-        <div className='bg-red-950 relative h-screen text-white text-5xl flex flex-col justify-center items-center overflow-hidden'>
+        <div className='bg-dimred relative h-screen text-darkred text-5xl flex flex-col justify-center items-center overflow-hidden'>
         {!click &&
         <div ref={container} className='h-screen absolute inset-0 z-20 flex justify-center items-center'>
             <motion.div 
             style={{ rotate, y: rise}} 
             className="w-52"
             >
-               <img src={src} alt='img1' className='scale-150'/>
+               <img src={src} alt='img1' className='scale-100'/>
             </motion.div>
 
             <motion.div style={{rotate: rotate3, y: fall}} className="w-52">
-               <img src={src}/>
+               <img src={src} className='scale-125'/>
             </motion.div>
             <motion.div style={{rotate: rotate2, y: rise}} className="w-52">
                <img src={src} alt='img2' className='scale-125'/>
             </motion.div>
             <motion.div style={{rotate: rotate, y: fall}} className="w-52">
-               <img src={src} className='scale-150  hover:scale-125 transition duration-100' onClick={() => setClick(true)}/>
+               <img src={src} className='scale-100  hover:scale-125 transition duration-100' onClick={() => setClick(true)}/>
             </motion.div>
         </div>
     }
         <div className='flex absolute z-10 justify-center items-center'>
         <div className='flex absoute z-10'>
-            <img src='/heart3.gif' className='m-1 scale-75'/>
+            <img src='/heart3.gif' className='m-1 scale-50'/>
         </div>
             <p>
             <strong>From:</strong> {sender} <br />
@@ -61,7 +61,7 @@ export default function Image({src, name, sender}) {
             </p>
             {/* <p>We hope you have a great day and enjoy your flowers. Please feel free to contact us if you need any help or guidance.</p> */}
         <div className='flex absoute z-10'>
-            <img src='/heart3.gif' className='m-10 scale-75'/>
+            <img src='/heart3.gif' className='m-10 scale-50'/>
         </div>
         </div>
         { click &&
