@@ -21,16 +21,16 @@ export default function Song({songURL, songMessage}) {
        requestAnimationFrame(raf)
    }, [])
 
-   const goRight = useTransform(scrollYProgress, [0, 0.3, 1], [-400, 0, 600])
-   const goRightM = useTransform(scrollYProgress, [0, 0.3, 1], [-300, 100, 500])
+   const goRight = useTransform(scrollYProgress, [0, 0.3, 1], [-600, 50, 600])
+   const goRightM = useTransform(scrollYProgress, [0, 0.3, 1], [1200, 750, -600])
 
     return (
-        <div ref={container} className='bg-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
+        <div ref={container} className='bg-gradient-to-b to-dimred from-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
             <motion.div style={{x: goRight}} className="">
                 <Spotify wide className='h-56 w-[70%] px-4' link = {songURL}/>
             </motion.div>
             <motion.div style={{x: goRightM}} className=''>
-                <div className='text-4xl ml-12 text-darkred text-center font-bold w-[50%]'>{songMessage}</div>
+                <div className='text-4xl text-darkred text-center font-bold w-[50%]'>{songMessage}</div>
             </motion.div>
         </div>
    )

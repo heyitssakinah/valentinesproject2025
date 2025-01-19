@@ -1,14 +1,21 @@
 import { getDatabase, onValue, ref } from 'firebase/database'
 import { useEffect, useState } from 'react'
+import { app } from "../../configuration";
 
 function ValentineWrapped({name}) {
   const [flowers, setFlowers] = useState('')
-  const db = getDatabase()
-  const dataref = ref(db, `Bouquets/${name}/Flowers`)
+
   useEffect(() => {
+    const db = getDatabase(app)
+    const dataref = ref(db, `Bouquets/${name}/Flowers`)
     const getFlowers = onValue(dataref, (snapshot) => 
-      {setFlowers(snapshot.val())}
-    )}
+    
+      {
+        console.log(snapshot.val())
+        setFlowers(snapshot.val())
+      }
+    )
+    return () => getFlowers()} 
   ,[])
   
   return (
