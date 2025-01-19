@@ -20,7 +20,7 @@ export default function Trial({photourl, photoMessage}) {
     }, [])
 
   return (
-    <main ref={container} className="relative h-[200vh] bg-mywhite">
+    <main ref={container} className="relative h-[200vh] bg-gradient-to-b from-mywhite to-lightred">
         <Section1 scrollYProgress={scrollYProgress} url={photourl} photoMessage={photoMessage}/>
         <Section2 scrollYProgress={scrollYProgress} url={photourl} />
     </main>
@@ -44,7 +44,7 @@ export default function Trial({photourl, photoMessage}) {
                 src={url}
                 alt="img"
                 placeholder="blur"
-                className='max-w-96'
+                className='max-w-96 max-h-[80vh]'
               />
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Trial({photourl, photoMessage}) {
               src={url}
               alt="img"
               placeholder="blur"
-              className='max-h-[80vh] max-w-[72vw] border-double border-lightred border-8 p-6'
+              className='max-h-[80vh] max-w-[72vw] border-double border-mywhite border-8 p-6'
             />
           </motion.div>
         )

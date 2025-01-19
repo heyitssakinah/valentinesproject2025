@@ -56,7 +56,7 @@ export default function Meme({Name, submitAll, handleScroll, toRef, toPrevRef}) 
       {display && (
         <div className='flex flex-col items-center -mt-4 mx-4 h-screen w-screen'>
           <h1 className="mt-14 text-center mx-10 mb:4 sm:mb-8 text-2xl sm:text-3xl text-mywhite ">Add a Meme For The Giggles?</h1>
-          <div className=' border-2 p-6 border-gray-400/30 rounded-xl grid grid-cols-1 overflow-scroll sm:grid-cols-3 gap-8 sm:gap-16 my-10 justify-center mx-6'>
+          <div className='border-2 p-6 border-gray-400/30 rounded-xl grid grid-cols-1 overflow-scroll sm:grid-cols-3 gap-8 sm:gap-16 my-10 justify-center mx-6'>
               {display && image.slice(0,9).map((image) => {
               return (
                 <div className=' flex justify-center rounded-md hover:scale-110 transition duration-150 ease-in-out'>

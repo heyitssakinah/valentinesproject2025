@@ -54,7 +54,7 @@ function Card() {
     <div className='font-serif bg-gradient-to-b to-darkred via-30% via-barnred from-red-950 w-screen h-screen'>
         
         <div className="flex items-center justify-center h-screen w-screen">
-          <img src={photo?.PhotoURL} className='max-w-96'/>
+          <img src={photo?.PhotoURL} className='max-w-96 max-h-96'/>
           <p className='text-4xl ml-12 text-white font-bold'> {SenderName} <br></br>sent you a flower!</p>
         </div>
 
@@ -88,11 +88,11 @@ function Card() {
           </Image>
         </div>
 
-        <div className="bg-myred flex flex-col items-center justify-center h-screen w-screen overflow-hidden">
+        <div className="bg-gradient-to-b from-dimred to-darkred flex flex-col items-center justify-center h-screen w-screen overflow-hidden">
 
           <div className='max-w-[85vw] h-[90vh] flex justify-center items-center m-4 space-x-6'>
 
-          <div className='flex mt-12 mb-2 p-8 border-2 border-lightred rounded-lg text-center text-mywhite text-xl w-[35vw]'>
+          <div className='flex mt-12 mb-2 p-8 border-2 border-lightred rounded-lg text-center whitespace-pre-wrap text-mywhite h-[90vh] text-xl w-[35vw]'>
             <p>{message?.Message}</p>
           </div>
 
@@ -104,7 +104,7 @@ function Card() {
                 alt="img"
                 placeholder="blur"  
                 className=' max-w-80 max-h-64 backdrop:shadow-lg mx-4 mb-4 rounded-2xl'/>
-                <p className='underline text-mywhite p-4 max-w-72 text-center'> {photo?.PhotoMessage}</p>
+                <p className='underline text-lg text-mywhite p-4 max-w-72 text-center'> {photo?.PhotoMessage}</p>
               </div>
               <div className=''>
                 <img src={meme?.MemeURL} alt='img1' className='max-w-72 backdrop:shadow-lg rounded-3xl p-4'/>
@@ -118,11 +118,11 @@ function Card() {
             </div>
             <div className='flex flex-col items-center justify-center'> 
               <Spotify className='px-4 h-44 w-[42vw]' link = {song?.SongURL}/>
-              <div className='underline text-mywhite w-[35vw] text-center'> {song?.Songhehehaha}</div>
+              <div className='underline text-lg text-mywhite w-[35vw] text-center'> {song?.Songhehehaha}</div>
             </div>
               <button  
                 onClick={() => navigate(`/Bouquet/${Name}#cardsRef`)}
-                className=' mt-4 ml-[80%] text-xs sm:text-base px-4 py-2 hover:text-darkred hover:bg-mywhite shadow-xl rounded-md w-40 text-mywhite bg-darkred'>
+                className=' mt-12 scale-90 ml-[80%] text-xs sm:text-base px-4 py-2 hover:text-darkred hover:bg-mywhite shadow-xl rounded-md w-40 text-mywhite bg-darkred'>
               Back to Bouquet</button>
 
           </div>

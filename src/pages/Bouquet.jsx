@@ -54,7 +54,7 @@ function Bouquet() {
                 console.log('error fetching images', error)}
         }
         fetchImages();
-},[allImages, location]);
+},[]);
 
 const variant1 = {
     animate: {
