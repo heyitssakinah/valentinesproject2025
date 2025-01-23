@@ -138,7 +138,7 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
                 className=" py-2 px-4 m-2 text-center text-mywhite bg-barnred rounded-md hover:bg-red-700"
             >Search</button>
           </div>
-          <div className='flex border-1 backdrop-blur-sm bg-transparent border-2 border-mywhite rounded-xl w-[85%] md:w-[65%] h-[50%] overflow-scroll mt-6 '>
+          <div className='flex border-1 backdrop-blur-sm bg-transparent border-2 border-mywhite rounded-xl w-[85%] md:w-[65%] h-[70%] sm:h-[50%] overflow-scroll mt-6 '>
             {/* LARGE SCREEN TABLE AHHHHH */}
             <div className='hidden md:block md:w-full'>
               <table className='w-full'>
@@ -227,7 +227,7 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
         message={message}
         handleDifSong={handleDifSong}>
       </Embed>
-           <div className='flex w-full space-x-[30%] justify-center'>
+           <div className='flex -mt-8 sm:mt-0 w-full space-x-[30%] justify-center'>
             <button 
               onClick={() => handleScroll(toPrevRef)}
               className='px-4 py-2 text-center text-white bg-red-700 rounded-md hover:bg-red-800'

@@ -1,7 +1,8 @@
 import BouquetTable from "../components/BouquetTable";
 import SearchInput from "../components/SearchInput";
 import { useState, useEffect, useRef } from "react";
-import { getDatabase, get, ref, set } from "firebase/database";
+import { getDatabase, get, ref, set, child } from "firebase/database";
+import { listAll } from "firebase/storage";
 import { app } from "../configuration";
 import { useNavigate } from "react-router-dom";
 import { doSignOut } from "../contexts/auth";
@@ -60,7 +61,8 @@ export default function SecretHomePage() {
 
   //filter bouquets based on search input
   const filteredBouquet = bouquet.filter((Person) =>
-    Person.Name.toLowerCase().includes(inputSearch.toLowerCase())
+    Person.Name.toLowerCase().includes(inputSearch.toLowerCase()) ||
+    Person.Email.toLowerCase().includes(inputSearch.toLowerCase())
   );
 
   //create a new persons bouquet
@@ -73,31 +75,53 @@ export default function SecretHomePage() {
         .toLowerCase()
         .split(" ")
         .reduce(
-          (acc, name) => acc + " " + name[0].toUpperCase() + name.slice(1),
+          (acc, name) => acc + name[0].toUpperCase() + name.slice(1) + " ",
           ""
-        );
+          );
 
-      navigate(`/createFlower/${newNameLC}/`);
-      const db = getDatabase(app);
-      const dataref = ref(db, `Bouquets/${newNameLC}`);
-      set(dataref, {
-        Name: newNameLC,
-        Flowers: 0,
-        Email: email,
-      }).catch((err) => {
-        console.error("Error submitting to database", err);
-      });
+      const checkEmail = async () => {
+        try{
+          console.log("checkeamil")
+          const db = getDatabase(app);
+          const dbRef = ref(db)
+          // Fetch all users from "Bouquets"
+          const snapshot = await get(child(dbRef, "Bouquets"))
+          if (snapshot.exists()) {
+          console.log(snapshot)
+          const allBouquets = snapshot.val();
+          //Extract Emails
+          const allEmails = Object.values(allBouquets).map((bouquet) => bouquet.Email)
+          //fetch email for each item
+           if(allEmails.includes(email)) {
+            console.log(allEmails.includes(email))
+             handleError("A bouquet already exits for this person!");
+             // alert('Email already exists. Please use a different email');
+             return;
+           }
+          }
+           const dataref = ref(db, `Bouquets/${newNameLC}`);
+           await set(dataref, {
+             Name: newNameLC,
+             Flowers: 0,
+             Email: email,
+           }).catch((err) => {
+             console.error("Error submitting to database", err);
+           });
+           navigate(`/createFlower/${newNameLC}/`);
+        } catch (error){
+            console.log('error checking email', error)}
+            return false;
+        }
+      checkEmail();
     }
   };
-  console.log("check %d %d", newName);
-
   //initialise data set for bouquet
 
   //list of items on page 2
   const list = [
-    "Join or create a bouquet for your loved one",
+    "Join or create a bouquet for someone special.",
     "Personalise your flower with a heartfelt letter",
-    "Customise further with meaningful pictures and song",
+    "Customize with meaningful photos and a favorite song",
     "Submit!",
   ];
 
@@ -151,7 +175,7 @@ export default function SecretHomePage() {
         {/* <img src='./flower1.png' className='absolute bottom-0 w-[50%] opacity-20'/> */}
       </div>
       <div className="flex flex-col items-center justify-center h-screen w-screen snap-center snap-always">
-        <p className="text-4xl sm:text-9xl shadow-myblack text-shadow-lg font-black text-mywhite mb-6">
+        <p className="text-5xl sm:text-9xl shadow-myblack text-shadow-lg font-black text-mywhite mb-4">
           {" "}
           VALENTINE{" "}
         </p>
@@ -165,14 +189,14 @@ export default function SecretHomePage() {
         >
           Gift a flower to someone you love.
         </motion.p>
-        <p className="text-4xl sm:text-9xl shadow-myblack text-shadow-lg font-black text-mywhite mt-10">
+        <p className="text-5xl sm:text-9xl shadow-myblack text-shadow-lg font-black text-mywhite mt-4 sm:mt-6">
           {" "}
           BOUQUET{" "}
         </p>
       </div>
 
       <div className="flex flex-col items-center justify-evenly h-screen w-screen snap-center snap-always">
-        <p className="text-mywhite block w-[60vw] text-center">
+        <p className="text-mywhite block w-[80vw] sm:w-[60vw] sm:text-lg text-center">
           Welcome to Valentine Bouqeuts. This website was created to revive the
           spirit of appreaciating your friends which is often lost in the ferver
           of adulthood and romance. Sometimes its the people closest to you that
@@ -191,7 +215,7 @@ export default function SecretHomePage() {
       </div>
 
       <div className="flex flex-col items-center justify-evenly h-screen w-screen snap-center snap-always">
-        <ol className="list-decimal text-xl sm:text-2xl max-w-[40%] text-mywhite space-y-5">
+        <ol className="list-decimal text-xl sm:text-2xl max-w-[70%] sm:max-w-[40%] text-mywhite space-y-5">
           {list.map((item, i) => {
             return (
               <motion.li
@@ -214,10 +238,10 @@ export default function SecretHomePage() {
       </div>
 
       <div className="flex w-screen h-screen justify-center snap-center snap-always">
-        <div className="mx-auto text-darkred">
+        <div className="mx-auto text-darkred w-screen h-screen overflow-hidden">
           <SearchInput search={inputSearch} handleSearch={handleSearch} />
           <BouquetTable filteredBouquet={filteredBouquet} />
-          <div className="flex w-full justify-center my-6">
+          <div className="flex w-full justify-center my-6 mb-14">
             <button
               onClick={() => setTriggerPopup(true)}
               className=" text-sm sm:text-base px-4 py-2 hover:text-darkred hover:bg-mywhite shadow-xl rounded-md text-mywhite bg-darkred"
@@ -242,12 +266,12 @@ export default function SecretHomePage() {
                 type="email"
                 autoComplete="email"
                 required
-                placeholder="Enter recipient's email (eg.heyitssakinah@gmail.com)"
+                placeholder="Enter recipient's email (eg.sakinah@u.nus.edu)"
                 className="w-full px-4 pt-4 mt-4 text-myblack border-2 border-myblack/70 bg-mywhite rounded-md placeholder-myblack/70 focus:outline-none"
               />
                 {showError && (
                     <div
-                      className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-lg flex items-center justify-between w-96"
+                      className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-lg flex items-center justify-between sm:w-96"
                       role="alert"
                     >
                       <span>{errorMessage}</span>
@@ -263,6 +287,8 @@ export default function SecretHomePage() {
                 <button
                   onClick={() => {
                     setTriggerPopup(false);
+                    setNewName("")
+                    setEmail("")
                   }}
                   className="w-full px-4 py-2 text-darkred font-medium rounded-lg"
                 >

@@ -47,13 +47,13 @@ return (
             <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
                 <div className="text-center">
                     <div className="mt-2">
-                        <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Welcome!</h3>
+                        <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Welcome to Valentine Bouquets!</h3>
                     </div>
                 </div>
-                <form
+                {/* <form
                     onSubmit={onSubmit}
-                    className="space-y-5"
-                >
+                    className="space-y-10"
+                > */}
                     {/* <div>
                         <label className="text-sm text-gray-600 font-bold">
                             Email
@@ -92,11 +92,11 @@ return (
                     >
                         {isSigningIn ? 'Signing In...' : 'Sign In'}
                     </button> */}
-                </form>
+                {/* </form> */}
                 {/* <p className="text-center text-sm">Don't have an account? <Link to={'/register'} className="hover:underline font-bold">Sign up</Link></p> */}
-                <div className='flex flex-row text-center w-full'>
+                {/* <div className='flex flex-row text-center w-full'>
                     <div className='border-b-2 mb-2.5 mr-2 w-full'></div><div className='text-sm font-bold w-fit'></div><div className='border-b-2 mb-2.5 ml-2 w-full'></div>
-                </div>
+                </div> */}
                 <button
                     disabled={isSigningIn}
                     onClick={(e) => { onGoogleSignIn(e) }}

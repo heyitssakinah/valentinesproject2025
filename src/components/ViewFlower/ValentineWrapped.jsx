@@ -8,8 +8,8 @@ function ValentineWrapped({name}) {
   useEffect(() => {
     const db = getDatabase(app)
     const dataref = ref(db, `Bouquets/${name}/Flowers`)
+    console.log(name)
     const getFlowers = onValue(dataref, (snapshot) => 
-    
       {
         console.log(snapshot.val())
         setFlowers(snapshot.val())

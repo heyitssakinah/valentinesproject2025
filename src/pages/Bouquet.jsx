@@ -52,6 +52,7 @@ function Bouquet() {
                 setAllImages(images);
             } catch (error) {
                 console.log('error fetching images', error)}
+                return false
         }
         fetchImages();
 },[]);
@@ -100,8 +101,8 @@ const variant2 = {
         </div>
 
         <div ref={lovedRef} className="snap-center h-[100vh] w-screen ">
-            <div className="flex flex-col items-center justify-center h-screen text-center font-black text-mywhite m-24">
-            <p className='text-4xl  sm:text-7xl'>You are sooo cherished and loved this valentines</p>
+            <div className="flex flex-col items-center justify-center h-screen text-center font-black text-mywhite m-10 sm:m-24">
+            <p className='text-4xl  sm:text-7xl'>You are sooo cherished and loved this valentines &lt;3</p>
             </div>
         </div>
 

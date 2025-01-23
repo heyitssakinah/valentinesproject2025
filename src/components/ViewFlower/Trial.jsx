@@ -34,19 +34,20 @@ export default function Trial({photourl, photoMessage}) {
     return (
         <motion.div 
         style={{scale, rotate, opacity}} 
-        className="sticky top-0 h-screen w-screen bg-gradient-to-b to-darkred from-barnred font-serif text-4xl font-bold flex flex-col items-center justify-center text-mywhite pb-[10vh]">
-          <div className="flex gap-12 items-center mx-24 ">
-                <div>
-                <p>{photoMessage}</p>
-                </div>
+        className="sticky top-0 h-screen w-screen bg-gradient-to-b to-darkred from-barnred font-valiny text-2xl sm:text-4xl font-bold flex flex-col items-center text-center justify-center text-mywhite pb-[10vh]">
+          <div className="flex flex-col sm:flex-row-reverse gap-12 items-center mx-24 ">
+               
             <div className="relative">
               <img 
                 src={url}
                 alt="img"
                 placeholder="blur"
-                className='max-w-96 max-h-[80vh]'
+                className='max-w-[90vw] max-h-[60vh] sm:max-w-96 sm:max-h-[80vh]'
               />
             </div>
+            <div>
+                <p>{photoMessage}</p>
+                </div>
           </div>
         </motion.div>
       )

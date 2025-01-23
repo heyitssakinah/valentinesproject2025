@@ -20,19 +20,18 @@ function BouquetTable({filteredBouquet}) {
     const currUser = `${currentUser.displayName}_${currentUser.uid}`
 
     return (
-        <div className='flex justify-center items-center w-screen font-valiny mb-8 overflow-hidden'>
-            <table className='border-2 w-[90%] sm:w-[75%] shadow-xl border-mywhite '>
-              <thead>
+        <div className='flex justify-center items-center font-valiny mb-8'>
+          <div className='overflow-scroll w-[90vw] sm:w-auto max-h-[60vh]'>
+            <table className='border-2 m-2 shadow-xl max-w-[200vw] sm:w-[75vw] border-mywhite'>
+              <thead className='sticky top-0'>
                 <tr className='text-center font-bold text-xs sm:text-base bg-mywhite text-darkred'> 
-                  <th className='py-1 '> Name </th>
-                  <th className='py-1 '> Email </th>
-                  <th className='py-1 '> Flowers Received </th>
+                  <th className='py-1 px-5 '> Name </th>
+                  <th className='py-1 hidden md:table-cell '> Email </th>
+                  <th className='py-1 px-5'> Flowers </th>
                 </tr>
               </thead>
               <tbody>
                 {filteredBouquet.map((Person) => {
-                  console.log('cu', currUser)
-                  console.log('bool',Person.hasOwnProperty(currUser))
                   return (
                     <tr 
                     key={Person.Name} className='group border-t font-extrabold text-mywhite group'
@@ -43,15 +42,16 @@ function BouquetTable({filteredBouquet}) {
                         navigate(`/createFlower/${Person.Name}`)
                       }}}
                       > 
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/30'
+                      <td className='p-2 px-2 text-xs w-[30%] sm:text-base text-center group-hover:bg-mywhite/30'
                       > {Person.Name} </td>
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/30'>{Person.Email}</td>
-                      <td className='p-2 text-xs sm:text-base text-center group-hover:bg-mywhite/30'>{Person.Flowers}</td>
+                      <td className='py-2 hidden md:table-cell text-xs sm:text-base w-[40%] text-center group-hover:bg-mywhite/30'>{Person.Email}</td>
+                      <td className='p-2 px-2 text-xs sm:text-base w-[30%] text-center group-hover:bg-mywhite/30'>{Person.Flowers}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
+          </div>
           </div>
     );
 }

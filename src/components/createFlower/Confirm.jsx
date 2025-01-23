@@ -36,7 +36,7 @@ console.log(checkAllInputs)
       {
         triggerPopup &&
           <div className="fixed top-0 left-0 w-screen h-screen bg-black/50 flex justify-center items-center">
-            <div className="bg-white rounded-lg shadow-lg p-6 w-[80%] sm:w-[90%] max-w-md text-center">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-[85%] sm:w-[90%] max-w-md text-center">
               {
                 !confirm? (
               <>

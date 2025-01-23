@@ -10,9 +10,10 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
   const [triggerPopup, setTriggerPopup] = useState(false);
   const [triggerEmbed, setTriggerEmbed] = useState(false);
   const [message, setMessage] = useState('');
-  const [photoURL, setURL] = useState('https://via.placeholder.com/200x150?text=Loading...');
+  const [photoURL, setURL] = useState('');
   const [image, setImage] = useState([]);
   const [hcp, sethcp] = useState(false);
+  const [loading, setLoadPhoto] = useState(true)
 
   const {currentUser} = useAuth();
   const storage = getStorage()
@@ -105,7 +106,30 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
           <>
             <div className='flex flex-col items-center w-screen h-screen'>
               <h1 className='mt-14 mb-10 text-2xl sm:text-3xl text-mywhite text-center mx-10' >You LOOK SO GOOD TOGETHER</h1>
-              <img className='max-w-[60%] max-h-[40%] mx-20 mb-4' src={photoURL}/>
+              <img className={`${loading ? "hidden" : "max-w-[60%] max-h-[40%] mx-20 mb-4"}`} src={photoURL} onLoad={() => setLoadPhoto(false)}/>
+              <div
+          class={`${
+            loading
+              ? "w-auto"
+              : "hidden"
+          }`}
+        >
+          {/* From Uiverse.io by themrsami */}
+          <button
+            class="inline-block mb-4 rounded-full border-2 border-myred text-myred focus:border-myred focus:text-myred active:border-rose-800 active:text-rose-800 dark:border-rose-300 dark:text-rose-300 dark:hover:hover:bg-rose-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
+            type="button"
+          >
+            <div
+              role="status"
+              class="inline-block h-3 w-3 mr-2 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            >
+              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                Loading...
+              </span>
+            </div>
+            Loading
+          </button>
+        </div>
               <div className='max-w-[80%] sm:max-w-[40%] bg-mywhite/10 text-mywhite py-3 rounded-2xl shadow-md px-6'>{message}</div>
           <button
             className="text-mywhite hover:text-mywhite/50 mb-16 mt-4 underline"
@@ -113,7 +137,9 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
               setTriggerEmbed(false)
               setTriggerPopup(false)
               setImage(null)
+              setURL('')
               setMessage('')
+              setLoadPhoto(false)
             }}
           >Choose a different photo button</button>
           <div className='flex w-full space-x-[30%] justify-center'>

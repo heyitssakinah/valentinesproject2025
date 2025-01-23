@@ -10,7 +10,7 @@ export default function Song({songURL, songMessage}) {
            target: container,
            offset: ["start end", "end start"]
        })
-   console.log(songURL)
+ 
    useEffect( () => {
        const lenis = new Lenis()
 
@@ -23,16 +23,52 @@ export default function Song({songURL, songMessage}) {
 
    const goRight = useTransform(scrollYProgress, [0, 0.3, 1], [-600, 50, 600])
    const goRightM = useTransform(scrollYProgress, [0, 0.3, 1], [1200, 750, -600])
+   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0])
+
+   const variants = { 
+    initial: {
+        x: -200,
+        opacity: 0
+    },
+    animate: {
+        x: [300, 0],
+        opacity: [0, 1],
+        transition: {
+            duration: 1,
+        },
+    }
+   }
 
     return (
-        <div ref={container} className='bg-gradient-to-b to-dimred from-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
-            <motion.div style={{x: goRight}} className="">
-                <Spotify wide className='h-56 w-[70%] px-4' link = {songURL}/>
-            </motion.div>
-            <motion.div style={{x: goRightM}} className=''>
-                <div className='text-4xl text-darkred text-center font-bold w-[50%]'>{songMessage}</div>
-            </motion.div>
+        <>
+        <div className='hidden md:block'>
+            <div ref={container} className='bg-gradient-to-b to-dimred from-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
+                <div>
+                <motion.div style={{x: goRight, opacity: opacity}} className="">
+                    <Spotify wide className='h-56 w-[70%] px-4' link = {songURL}/>
+                </motion.div>
+                <motion.div style={{x: goRightM, opacity: opacity}} className=''>
+                    <div className='md:text-4xl text-darkred text-center font-bold w-[50%]'>{songMessage}</div>
+                </motion.div>
+            </div>  
+            </div>
         </div>
+        <div className='md:hidden block'>
+            <div className='bg-gradient-to-b to-dimred from-lightred h-screen w-screen overflow-hidden flex flex-col items-center justify-center'>
+                <motion.div 
+                variants={variants}
+                whileInView="animate"
+                viewport={{
+                    once: false
+                }}
+                className="">
+                    <Spotify className='' link = {songURL}/>
+                </motion.div>
+                <div className='text-darkred text-center font-bold w-[70%]'>{songMessage}</div>
+            </div>
+        </div>
+        
+        </>
    )
 }
   
