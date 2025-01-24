@@ -195,40 +195,39 @@ export default function SecretHomePage() {
         </motion.p>
         <p className="text-5xl sm:text-9xl shadow-myblack text-shadow md:text-shadow-lg font-black text-mywhite mt-4 sm:mt-6">
           {" "}
-          BOUQUET{" "}
+          BOUQUETS{" "}
         </p>
       </div>
 
       <div className="flex flex-col items-center justify-evenly h-screen w-screen snap-center snap-always">
         <p className="text-mywhite block w-[80vw] sm:w-[60vw] sm:text-lg text-center">
-          Welcome to Valentine Bouqeuts. I started this project because I
-          realized how easy it is to forget to appreciate the friends who shape our
-          lives. As we grow older and life gets busier, we often get engulfed in the ferver of
-          romance and adulthood, unintentionally taking for granted the people
-          closest to us. Yet it’s the small moments with friends—the laughter,
-          support, and shared memories—that make everything truly worthwhile. 
-          
+        Welcome to Valentine Bouqeuts. This website was created to revive the
+          spirit of appreaciating your friends-something often lost in the ferver
+          of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. Yet it’s the small moments with friends—the laughter,
+          support, and shared memories that make everything truly worthwhile. 
+          <br></br><br></br>
           Valentine
           Bouquets is my way of encouraging everyone to take a moment to
           celebrate these friendships and remind the people in your life just
-          how much they mean to you. I deeply believe that valentines belongs not just
-          to the lovers but to everyone. 
+          how much they mean to you. Valentines belongs to everyone, not just
+          the lovers.
           
-          So Take time to show gratitude to your
-          friends even the ones you only see once a year or the ones you knew for a
+          So take time to show gratitude to your
+          friends, the ones you see only once a year and the ones you knew for a
           fleeting moment on an overseas trip. Take time to say i love you to
-          your suitemates and tutorial groups that hard carried you
-          last semester. 
-          
-          
-          Love isn't about you get but rather what you
-          can give. Valentine 2025 is Let’s make this Valentine’s Day one to remember—for everyone
-          who’s made your life a little brighter.
+          your suitemates, your coursemates, and tutorial groups that hard carried you
+          last semester.
+          <br></br><br></br>
+          Love is sweetest, after all, when celebrated together.
+        
           <br></br>
           <br></br>
           <br></br>
           <br></br>
-          love, Sakinah &lt;3
+          <div className="text-right">
+            <a href="https://www.linkedin.com/in/heyitssakinah" target="_blank" rel="noreferrer noopener" className=" hover:text-mywhite/70 hover:underline">Sakinah</a>
+            , Valentines 2025 &lt;3
+          </div>
         </p>
       </div>
 
