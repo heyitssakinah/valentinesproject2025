@@ -116,7 +116,7 @@ function Card() {
       {/* Overview of flower */}
       <div className="bg-gradient-to-b from-dimred to-darkred flex flex-col flex-wrap items-center justify-center h-screen w-screen overflow-hidden">
         <div className="max-w-[85vw] h-[90vh] flex flex-col md:flex-row justify-center items-center m-4 md:space-x-6 text-xs">
-          <div className="max-h-50vw max-w-75vw flex mt-4 md:mt-4 mb-4 p-8 border-2 border-lightred rounded-lg text-center whitespace-pre-wrap overflow-scroll text-mywhite md:h-[90vh] md:text-xl md:w-[35vw]">
+          <div className="max-h-50vw max-w-75vw flex mt-4 md:mt-4 mb-4 py-6 px-8 border-2 border-lightred rounded-lg text-left whitespace-pre-wrap overflow-scroll text-mywhite md:h-[90vh] md:text-xl md:w-[35vw]">
             <p>{message?.Message}</p>
           </div>
 

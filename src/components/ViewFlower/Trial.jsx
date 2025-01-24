@@ -64,7 +64,7 @@ export default function Trial({photourl, photoMessage}) {
               src={url}
               alt="img"
               placeholder="blur"
-              className='max-h-[80vh] max-w-[72vw] border-double border-mywhite border-8 p-6'
+              className='max-h-[80vh] max-w-[72vw] border-double border-mywhite border-8 p-2 sm:p-6'
             />
           </motion.div>
         )

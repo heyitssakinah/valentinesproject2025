@@ -60,9 +60,10 @@ export default function SecretHomePage() {
   }
 
   //filter bouquets based on search input
-  const filteredBouquet = bouquet.filter((Person) =>
-    Person.Name.toLowerCase().includes(inputSearch.toLowerCase()) ||
-    Person.Email.toLowerCase().includes(inputSearch.toLowerCase())
+  const filteredBouquet = bouquet.filter(
+    (Person) =>
+      Person.Name.toLowerCase().includes(inputSearch.toLowerCase()) ||
+      Person.Email.toLowerCase().includes(inputSearch.toLowerCase())
   );
 
   //create a new persons bouquet
@@ -77,41 +78,44 @@ export default function SecretHomePage() {
         .reduce(
           (acc, name) => acc + name[0].toUpperCase() + name.slice(1) + " ",
           ""
-          );
+        );
 
       const checkEmail = async () => {
-        try{
-          console.log("checkeamil")
+        try {
+          console.log("checkeamil");
           const db = getDatabase(app);
-          const dbRef = ref(db)
+          const dbRef = ref(db);
           // Fetch all users from "Bouquets"
-          const snapshot = await get(child(dbRef, "Bouquets"))
+          const snapshot = await get(child(dbRef, "Bouquets"));
           if (snapshot.exists()) {
-          console.log(snapshot)
-          const allBouquets = snapshot.val();
-          //Extract Emails
-          const allEmails = Object.values(allBouquets).map((bouquet) => bouquet.Email)
-          //fetch email for each item
-           if(allEmails.includes(email)) {
-            console.log(allEmails.includes(email))
-             handleError("A bouquet already exits for this person!");
-             // alert('Email already exists. Please use a different email');
-             return;
-           }
+            console.log(snapshot);
+            const allBouquets = snapshot.val();
+            //Extract Emails
+            const allEmails = Object.values(allBouquets).map(
+              (bouquet) => bouquet.Email
+            );
+            //fetch email for each item
+            if (allEmails.includes(email)) {
+              console.log(allEmails.includes(email));
+              handleError("A bouquet already exits for this person!");
+              // alert('Email already exists. Please use a different email');
+              return;
+            }
           }
-           const dataref = ref(db, `Bouquets/${newNameLC}`);
-           await set(dataref, {
-             Name: newNameLC,
-             Flowers: 0,
-             Email: email,
-           }).catch((err) => {
-             console.error("Error submitting to database", err);
-           });
-           navigate(`/createFlower/${newNameLC}/`);
-        } catch (error){
-            console.log('error checking email', error)}
-            return false;
+          const dataref = ref(db, `Bouquets/${newNameLC}`);
+          await set(dataref, {
+            Name: newNameLC,
+            Flowers: 0,
+            Email: email,
+          }).catch((err) => {
+            console.error("Error submitting to database", err);
+          });
+          navigate(`/createFlower/${newNameLC}/`);
+        } catch (error) {
+          console.log("error checking email", error);
         }
+        return false;
+      };
       checkEmail();
     }
   };
@@ -175,7 +179,7 @@ export default function SecretHomePage() {
         {/* <img src='./flower1.png' className='absolute bottom-0 w-[50%] opacity-20'/> */}
       </div>
       <div className="flex flex-col items-center justify-center h-screen w-screen snap-center snap-always">
-        <p className="text-5xl sm:text-9xl shadow-myblack text-shadow-lg font-black text-mywhite mb-4">
+        <p className="text-5xl sm:text-9xl shadow-myblack text-shadow md:text-shadow-lg font-black text-mywhite mb-4">
           {" "}
           VALENTINE{" "}
         </p>
@@ -189,7 +193,7 @@ export default function SecretHomePage() {
         >
           Gift a flower to someone you love.
         </motion.p>
-        <p className="text-5xl sm:text-9xl shadow-myblack text-shadow-lg font-black text-mywhite mt-4 sm:mt-6">
+        <p className="text-5xl sm:text-9xl shadow-myblack text-shadow md:text-shadow-lg font-black text-mywhite mt-4 sm:mt-6">
           {" "}
           BOUQUET{" "}
         </p>
@@ -197,15 +201,29 @@ export default function SecretHomePage() {
 
       <div className="flex flex-col items-center justify-evenly h-screen w-screen snap-center snap-always">
         <p className="text-mywhite block w-[80vw] sm:w-[60vw] sm:text-lg text-center">
-          Welcome to Valentine Bouqeuts. This website was created to revive the
-          spirit of appreaciating your friends which is often lost in the ferver
-          of adulthood and romance. Sometimes its the people closest to you that
-          you often take for granted. VB believes that valentines belongs to
-          everyone not just the lovers. So take time to show gratitude to your
-          girlies even the ones you only see once a year or the ones you only
-          knew for a short while on that overseas trip. Take time to say i love
-          you to your friends, suitemates, and tutorial groups that hard carried
-          you last semester. Make this a valentines to remember.
+          Welcome to Valentine Bouqeuts. I started this project because I
+          realized how easy it is to forget to appreciate the friends who shape our
+          lives. As we grow older and life gets busier, we often get engulfed in the ferver of
+          romance and adulthood, unintentionally taking for granted the people
+          closest to us. Yet it’s the small moments with friends—the laughter,
+          support, and shared memories—that make everything truly worthwhile. 
+          
+          Valentine
+          Bouquets is my way of encouraging everyone to take a moment to
+          celebrate these friendships and remind the people in your life just
+          how much they mean to you. I deeply believe that valentines belongs not just
+          to the lovers but to everyone. 
+          
+          So Take time to show gratitude to your
+          friends even the ones you only see once a year or the ones you knew for a
+          fleeting moment on an overseas trip. Take time to say i love you to
+          your suitemates and tutorial groups that hard carried you
+          last semester. 
+          
+          
+          Love isn't about you get but rather what you
+          can give. Valentine 2025 is Let’s make this Valentine’s Day one to remember—for everyone
+          who’s made your life a little brighter.
           <br></br>
           <br></br>
           <br></br>
@@ -269,26 +287,26 @@ export default function SecretHomePage() {
                 placeholder="Enter recipient's email (eg.sakinah@u.nus.edu)"
                 className="w-full px-4 pt-4 mt-4 text-myblack border-2 border-myblack/70 bg-mywhite rounded-md placeholder-myblack/70 focus:outline-none"
               />
-                {showError && (
-                    <div
-                      className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-lg flex items-center justify-between sm:w-96"
-                      role="alert"
-                    >
-                      <span>{errorMessage}</span>
-                      <button
-                        onClick={() => setShowError(false)}
-                        className="ml-4 text-red-500 font-bold hover:text-red-700 focus:outline-none"
-                      >
-                        ✕
-                      </button>
-                    </div>
-                  )}
+              {showError && (
+                <div
+                  className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-lg flex items-center justify-between sm:w-96"
+                  role="alert"
+                >
+                  <span>{errorMessage}</span>
+                  <button
+                    onClick={() => setShowError(false)}
+                    className="ml-4 text-red-500 font-bold hover:text-red-700 focus:outline-none"
+                  >
+                    ✕
+                  </button>
+                </div>
+              )}
               <div className="flex mt-6">
                 <button
                   onClick={() => {
                     setTriggerPopup(false);
-                    setNewName("")
-                    setEmail("")
+                    setNewName("");
+                    setEmail("");
                   }}
                   className="w-full px-4 py-2 text-darkred font-medium rounded-lg"
                 >
@@ -300,7 +318,6 @@ export default function SecretHomePage() {
                 >
                   Confirm
                 </button>
-               
               </div>
             </div>
           </div>

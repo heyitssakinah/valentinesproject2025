@@ -138,7 +138,7 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
                 className=" py-2 px-4 m-2 text-center text-mywhite bg-barnred rounded-md hover:bg-red-700"
             >Search</button>
           </div>
-          <div className='flex border-1 backdrop-blur-sm bg-transparent border-2 border-mywhite rounded-xl w-[85%] md:w-[65%] h-[70%] sm:h-[50%] overflow-scroll mt-6 '>
+          <div className='flex border-1 backdrop-blur-sm bg-transparent border-2 border-mywhite rounded-xl w-[85%] md:w-[65%] h-[60%] sm:h-[50%] overflow-scroll mt-6 '>
             {/* LARGE SCREEN TABLE AHHHHH */}
             <div className='hidden md:block md:w-full'>
               <table className='w-full'>

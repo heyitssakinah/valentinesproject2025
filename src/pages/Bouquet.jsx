@@ -74,15 +74,15 @@ const variant2 = {
     <div className='font-serif bg-gradient-to-tl from-darkred via-myred via-30% to-lightred snap-y snap-mandatory overflow-y-scroll w-screen h-screen'>
         <div className="flex flex-col items-center justify-center h-screen w-screen text-center snap-center snap-always">
             <motion.p 
-            className="text-4xl shadow-myblack text-shadow sm:text-8xl font-black text-mywhite m-5"
+            className="text-4xl shadow-dimred text-shadow sm:text-8xl font-black text-mywhite m-5"
             variants={variant1}
             whileInView="animate"
             viewport={{
                 once: true
             }}
-            > HAPPY VALENTINE <br></br> </motion.p>
+            > HAPPY VALENTINES <br></br> </motion.p>
             <motion.p 
-            className="text-4xl shadow-myblack text-shadow sm:text-8xl font-black text-mywhite m-5"
+            className="text-4xl shadow-dimred text-shadow sm:text-8xl font-black text-mywhite sm:m-5"
             variants={variant2}
             whileInView="animate"
             
