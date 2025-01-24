@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { doSignOut } from "../contexts/auth";
 import { useTransform, useScroll, motion } from "framer-motion";
 import Lenis from "lenis";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function SecretHomePage() {
   const [bouquet, setBouquet] = useState([]);
@@ -102,11 +103,14 @@ export default function SecretHomePage() {
               return;
             }
           }
+          const ID = uuidv4().toUpperCase();
+          console.log(ID)
           const dataref = ref(db, `Bouquets/${newNameLC}`);
           await set(dataref, {
             Name: newNameLC,
             Flowers: 0,
             Email: email,
+            ID: ID
           }).catch((err) => {
             console.error("Error submitting to database", err);
           });

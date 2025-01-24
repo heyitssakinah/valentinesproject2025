@@ -27,8 +27,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />} />
-        <Route path="/Bouquet/:Name" element={<Bouquet/>} />
-        <Route path="/Bouquet/:Name/:Sender" element={<Card />} />
+        <Route path="/Bouquet/:Name/:UID" element={<Bouquet/>} />
+        <Route path="/Bouquet/:Name/:UID/:Sender" element={<Card />} />
         <Route path="/createFlower/:Name" element={<CreateFlower/>} />
         <Route path="*" element={<div>Route Not Found</div>} />
       </Routes>

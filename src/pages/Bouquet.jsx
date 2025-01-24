@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 
 function Bouquet() {
-    const { Name } = useParams();
+    const { UID, Name } = useParams();
     const [allImages, setAllImages] = useState([]);
     const navigate = useNavigate();
 
@@ -118,7 +118,7 @@ const variant2 = {
                     alt={`Image ${index}`}
                     className="w-full h-full object-cover rounded-lg"
                     onClick={() => {
-                        navigate(`/Bouquet/${Name}/${image.name}`)
+                        navigate(`/Bouquet/${Name}/${UID}/${image.name}`)
                     }}
                 />
                 </div>
