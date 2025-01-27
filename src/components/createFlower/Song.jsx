@@ -144,7 +144,6 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
               <table className='w-full'>
                 <thead className='bg-mywhite/70 sticky'>
                   <tr>
-                    {/* <th className='w-0 -col-start-1'></th> */}
                     <th className='py-5 backdrop-blur-sm flex-1 w-80 text-myblack'>Track</th>
                     <th className='backdrop-blur-md text-myblack'>Artist</th>                  
                   </tr>
@@ -163,9 +162,6 @@ export default function Song({Name, submitAll, handleScroll, toRef, toPrevRef}) 
                       }));
                     }}
                       className='hover:backdrop-contrast-50 group'>
-                        {/* <div className='flex'> */}
-                          {/* <td className='flex-none w-8 h-8'> */}
-                          {/* </td> */}
                           <td className='py-1 w-52 text-mywhite text-left group-hover:bg-barnred'>
                             <div className='flex mt-2 mr-4 items-center'>
                               <img className='mx-4 w-14 h-14' src={track.album.images.map((img) => img.url)[0]}/>

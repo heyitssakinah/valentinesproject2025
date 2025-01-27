@@ -39,7 +39,7 @@ function BouquetTable({filteredBouquet}) {
                       if (Person.hasOwnProperty(currUser)) {
                         alert("You have already sent a flower to this person.")
                       } else {
-                        navigate(`/createFlower/${Person.Name}`)
+                        navigate(`/createFlower/${Person.Name}_${Person.ID}`)
                       }}}
                       > 
                       <td className='p-2 px-2 text-xs w-[30%] sm:text-base text-center group-hover:bg-mywhite/30'

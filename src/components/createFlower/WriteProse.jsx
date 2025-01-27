@@ -6,6 +6,7 @@ import { useAuth } from "../../contexts/authContext";
 
 
 export function WriteProse({Name, submitAll, handleScroll, toRef}) { 
+    const name = Name.split("_")[0];
     const [option, setOption] = useState('paragraph');
     const [input, setInput] = useState('');
     const {currentUser} = useAuth();
@@ -46,7 +47,7 @@ export function WriteProse({Name, submitAll, handleScroll, toRef}) {
 
     return (
         <div className='flex flex-col items-center h-screen w-screen bg-darkred'>
-                <h1 className="mt-16 mb-8 sm:mb-10 text-2xl md:text-3xl mx-4 text-mywhite text-center">Send a Flower to { Name }</h1>
+                <h1 className="mt-16 mb-8 sm:mb-10 text-2xl md:text-3xl mx-4 text-mywhite text-center">Send a Flower to { name }</h1>
                 <div className='flex space-x-6 sm:pl-5 m-5 w-[50%]'>
                     <button
                         onClick={() => handleOptionChange('paragraph')}

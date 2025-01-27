@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Confirm({Name, setSubmitAll, checkAllInputs, handleScroll, toPrevRef}) {
+  const name = Name.split("_")[0];
   const [triggerPopup, setTriggerPopup] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ console.log(checkAllInputs)
               </> 
               ): (
                 <>
-                   <p>Thank you for sending a flower to {Name}!</p>
+                   <p>Thank you for sending a flower to {name}!</p>
                     <button
                       onClick={() => {
                         setSubmitAll(false)

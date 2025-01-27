@@ -10,11 +10,12 @@ import Song from "../components/ViewFlower/Song";
 import Image from "../components/ViewFlower/Image";
 
 function Card() {
-  const { Name, Sender } = useParams();
-  const SenderName = Sender.split("_")[0];
+  const { NameWithID, Sender } = useParams();
+  const senderName = Sender.split("_")[0];
+  const name = NameWithID.split("_")[0];
   const navigate = useNavigate();
   const db = getDatabase(app);
-  const dataref = ref(db, `Bouquets/${Name}/${Sender}`);
+  const dataref = ref(db, `Bouquets/${NameWithID}/${Sender}`);
 
   const [message, setMessage] = useState("");
   const [song, setSong] = useState();
@@ -89,7 +90,7 @@ function Card() {
         </div>
         <p className="text-4xl mt-12 md:ml-12 text-mywhite font-bold text-center md:text-left">
           {" "}
-          {SenderName} <br></br>sent you a flower!
+          {senderName} <br></br>sent you a flower!
         </p>
       </div>
 
@@ -110,7 +111,7 @@ function Card() {
       </div>
 
       <div>
-        <Image src={meme.MemeURL} sender={SenderName} name={Name}></Image>
+        <Image src={meme.MemeURL} sender={senderName} name={name}></Image>
       </div>
 
       {/* Overview of flower */}
@@ -143,9 +144,9 @@ function Card() {
                 <div className="text-mywhite text-xs md:text-xl text-center">
                   <p>
                     <strong>From: </strong>
-                    {SenderName} <br />
+                    {senderName} <br />
                     <strong>To: </strong>
-                    {Name}
+                    {name}
                   </p>
                 </div>
               </div>
@@ -161,14 +162,14 @@ function Card() {
               </div>
             </div>
             <button
-              onClick={() => navigate(`/Bouquet/${Name}#cardsRef`)}
+              onClick={() => navigate(`/Bouquet/${NameWithID}#cardsRef`)}
               className="hidden md:block mt-12 scale-90 ml-[80%] text-xs md:text-base px-4 py-2 hover:text-darkred hover:bg-mywhite shadow-xl rounded-md w-40 text-mywhite bg-darkred"
             >
               Back
             </button>
           </div>
           <button
-            onClick={() => navigate(`/Bouquet/${Name}#cardsRef`)}
+            onClick={() => navigate(`/Bouquet/${NameWithID}#cardsRef`)}
             className="md:hidden block mt-10 scale-90 text-xs md:text-base px-4 py-2 hover:text-darkred hover:bg-mywhite shadow-xl rounded-md w-40 text-mywhite bg-darkred"
           >
             Back
@@ -180,14 +181,4 @@ function Card() {
 }
 
 export default Card;
-{
-  /* <img src='/envelopeOpen.png' alt='open-envelope' className={`absolute bottom-[15%] left-20 w-72 m-44 transition-opacity duration-200 ease-in ${openMessage ? 'opacity-100' : 'opacity-0'}`}/> */
-}
-{
-  /* // <button
-            //     onClick={() => setOpenMessage(true)}
-            //     className=" w-60 h-40 absolute bottom-[40%] z-20 opacity-0 mt-4 p-2 bg-blue-500 text-white rounded"
-            //   >
-            //     Toggle Image
-            //   </button> */
-}
+

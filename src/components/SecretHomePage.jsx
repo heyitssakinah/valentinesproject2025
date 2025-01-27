@@ -13,7 +13,6 @@ import { v4 as uuidv4 } from 'uuid';
 export default function SecretHomePage() {
   const [bouquet, setBouquet] = useState([]);
   const [inputSearch, setInputSearch] = useState("");
-  const [createNew, setCreate] = useState(false);
   const [newName, setNewName] = useState("");
   const [email, setEmail] = useState("");
   const [triggerPopup, setTriggerPopup] = useState(false);
@@ -79,7 +78,7 @@ export default function SecretHomePage() {
         .reduce(
           (acc, name) => acc + name[0].toUpperCase() + name.slice(1) + " ",
           ""
-        );
+        ).trim();
 
       const checkEmail = async () => {
         try {
@@ -98,15 +97,15 @@ export default function SecretHomePage() {
             //fetch email for each item
             if (allEmails.includes(email)) {
               console.log(allEmails.includes(email));
-              handleError("A bouquet already exits for this person!");
-              // alert('Email already exists. Please use a different email');
+              handleError("A bouquet already exists for this person!");
               return;
             }
           }
           const ID = uuidv4().toUpperCase();
           console.log(ID)
-          const dataref = ref(db, `Bouquets/${newNameLC}`);
+          const dataref = ref(db, `Bouquets/${newNameLC}_${ID}`);
           await set(dataref, {
+            //initialise data set for bouquet
             Name: newNameLC,
             Flowers: 0,
             Email: email,
@@ -114,7 +113,7 @@ export default function SecretHomePage() {
           }).catch((err) => {
             console.error("Error submitting to database", err);
           });
-          navigate(`/createFlower/${newNameLC}/`);
+          navigate(`/createFlower/${newNameLC}_${ID}/`);
         } catch (error) {
           console.log("error checking email", error);
         }
@@ -123,7 +122,6 @@ export default function SecretHomePage() {
       checkEmail();
     }
   };
-  //initialise data set for bouquet
 
   //list of items on page 2
   const list = [
@@ -133,15 +131,6 @@ export default function SecretHomePage() {
     "Submit!",
   ];
 
-  //background colour scroll animation
-  //   const container = useRef(null);
-  //   const { scrollYProgress } = useScroll({
-  //     target: container,
-  //     offset: ["start end", "end start"]
-  //   })
-
-  //   const rotate = useTransform(scrollYProgress, [0,1], ['0deg', '360deg'])
-  //   const goUp = useTransform(scrollYProgress, [0.5, 1], [0, -500])
   const variant1 = {
     animate: {
       opacity: [0, 1],
@@ -162,12 +151,6 @@ export default function SecretHomePage() {
   };
 
   return (
-    // <div className='flex relative justify-center items-center w-screen h-[300vh] overflow-hidden'>
-    //     <motion.div
-    //     ref='background'
-    //     style={{}}
-    //     className='flex h-[300vh] absolute inset-0 z-0 bg-repeat bg-gradient-to-tl from-darkred via-myred via-30% to-lightred'>
-    //     </motion.div>
     <div className="font-valiny snap-y snap-mandatory overflow-y-scroll bg-gradient-to-tl from-darkred via-myred via-30% to-lightred">
       <button
         onClick={() => {
@@ -207,7 +190,7 @@ export default function SecretHomePage() {
         <p className="text-mywhite block w-[80vw] sm:w-[60vw] sm:text-lg text-center">
         Welcome to Valentine Bouqeuts. This website was created to revive the
           spirit of appreaciating your friends-something often lost in the ferver
-          of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. Yet it’s the small moments with friends—the laughter,
+          of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. But really, t’s the small moments with friends—the laughter,
           support, and shared memories that make everything truly worthwhile. 
           <br></br><br></br>
           Valentine

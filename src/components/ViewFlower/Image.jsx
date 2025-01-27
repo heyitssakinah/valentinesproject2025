@@ -46,7 +46,7 @@ export default function Image({ src, name, sender }) {
               <img
                 src={src}
                 onClick={() => setClick(true)}
-                className="w-[120%] shadow-xl hover:scale-90 transition duration-100"
+                className="w-[40vw] max-h-[70vh] shadow-xl hover:scale-90 transition duration-100"
               />
             </motion.div>
             <p className="sm:text-3xl text-2xl text-center">

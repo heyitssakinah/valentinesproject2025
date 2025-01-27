@@ -9,12 +9,13 @@ import { motion } from 'framer-motion';
 
 
 function Bouquet() {
-    const { UID, Name } = useParams();
+    const { NameWithID } = useParams();
     const [allImages, setAllImages] = useState([]);
+    const name = NameWithID.split("_")[0];
     const navigate = useNavigate();
 
     const storage = getStorage();
-    const storageRef = storRef(storage, `PersonalImages/${Name}`)
+    const storageRef = storRef(storage, `PersonalImages/${NameWithID}`)
 
     const location = useLocation();
     const wrappedRef = useRef(null);
@@ -89,12 +90,12 @@ const variant2 = {
             viewport={{
                 once: true
             }}
-            >{Name} </motion.p>
+            >{name} </motion.p>
         </div>
             
         <div ref={wrappedRef} className="snap-center h-screen w-screen ">
             <ValentineWrapped
-            name={Name}
+            name={NameWithID}
             >
 
             </ValentineWrapped>
@@ -118,7 +119,7 @@ const variant2 = {
                     alt={`Image ${index}`}
                     className="w-full h-full object-cover rounded-lg"
                     onClick={() => {
-                        navigate(`/Bouquet/${Name}/${UID}/${image.name}`)
+                        navigate(`/Bouquet/${NameWithID}/${image.name}`)
                     }}
                 />
                 </div>

@@ -7,6 +7,7 @@ import { app } from '../../configuration';
 import { useAuth } from '../../contexts/authContext';
 //add auth information
 function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
+  const name = Name.split("_")[0];
   const [triggerPopup, setTriggerPopup] = useState(false);
   const [triggerEmbed, setTriggerEmbed] = useState(false);
   const [message, setMessage] = useState('');
@@ -94,7 +95,7 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
          </div>
          )}
         <Popup
-          name={Name} 
+          name={name}
           trigger={triggerPopup} 
           setTrigger={setTriggerPopup}
           handleSubmit={handleSubmit}
@@ -130,7 +131,7 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
             Loading
           </button>
         </div>
-              <div className='max-w-[80%] sm:max-w-[40%] bg-mywhite/10 text-mywhite py-3 rounded-2xl shadow-md px-6'>{message}</div>
+              <div className='max-w-[80%] text-center sm:max-w-[40%] bg-mywhite/10 text-mywhite py-3 rounded-2xl shadow-md px-6'>{message}</div>
           <button
             className="text-mywhite hover:text-mywhite/50 mb-16 mt-4 underline"
             onClick={() => {
