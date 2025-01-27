@@ -128,7 +128,7 @@ export default function SecretHomePage() {
     "Join or create a bouquet for someone special.",
     "Personalise your flower with a heartfelt letter",
     "Customize with meaningful photos and a favorite song",
-    "Submit!",
+    "Submit! Your friends will receive their bouquet of messages on the 14th!",
   ];
 
   const variant1 = {
@@ -178,7 +178,7 @@ export default function SecretHomePage() {
             once: true,
           }}
         >
-          Gift a flower to someone you love.
+          Write a message for someone you love.
         </motion.p>
         <p className="text-5xl sm:text-9xl shadow-myblack text-shadow md:text-shadow-lg font-black text-mywhite mt-4 sm:mt-6">
           {" "}
