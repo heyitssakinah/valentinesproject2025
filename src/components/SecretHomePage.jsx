@@ -190,7 +190,7 @@ export default function SecretHomePage() {
         <p className="text-mywhite block w-[90vw] sm:w-[60vw] sm:text-lg text-left sm:text-center">
         Welcome to Valentine Bouqeuts. This website was created to revive the
           spirit of appreaciating your friends-something often lost in the ferver
-          of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. But really, t’s the small moments with friends—the laughter,
+          of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. But really, it’s the small moments with friends—the laughter,
           support, and shared memories that make everything truly worthwhile. 
           <br></br><br></br>
           Valentine
