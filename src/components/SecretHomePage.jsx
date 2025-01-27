@@ -152,7 +152,7 @@ export default function SecretHomePage() {
 
   return (
     <div className="font-valiny snap-y snap-mandatory overflow-y-scroll bg-gradient-to-tl from-darkred via-myred via-30% to-lightred">
-      <button
+      {/* <button
         onClick={() => {
           doSignOut().then(() => {
             navigate("/login");
@@ -161,7 +161,7 @@ export default function SecretHomePage() {
         className="text-sm text-blue-600 underline"
       >
         Logout
-      </button>
+      </button> */}
       <div className="overflow-hidden">
         {/* <img src='./flower1.png' className='absolute bottom-0 w-[50%] opacity-20'/> */}
       </div>
