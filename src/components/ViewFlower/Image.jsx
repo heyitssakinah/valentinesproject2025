@@ -31,7 +31,7 @@ export default function Image({ src, name, sender }) {
   const scale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <div className="bg-dimred h-screen w-screen text-mywhite text-5xl sm:flex flex-col justify-center items-center overflow-hidden">
+    <div className="bg-gradient-to-b from-myred from-40% to-dimred h-screen w-screen text-mywhite text-5xl sm:flex flex-col justify-center items-center overflow-hidden">
       <div className="hidden sm:flex justify-center items-center h-screen">
         {!click && (
           <>

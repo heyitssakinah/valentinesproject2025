@@ -42,19 +42,19 @@ export default function Song({songURL, songMessage}) {
     return (
         <>
         <div className='hidden md:block'>
-            <div ref={container} className='bg-gradient-to-b to-dimred from-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
+            <div ref={container} className='bg-gradient-to-b to-myred from-lightred h-screen w-screen overflow-hidden flex flex-col justify-center'>
                 <div>
                 <motion.div style={{x: goRight, opacity: opacity}} className="">
                     <Spotify wide className='h-56 w-[70%] px-4' link = {songURL}/>
                 </motion.div>
                 <motion.div style={{x: goRightM, opacity: opacity}} className=''>
-                    <div className='md:text-4xl text-darkred text-center font-bold w-[50%]'>{songMessage}</div>
+                    <div className='md:text-4xl underline bold text-mywhite text-center font-bold w-[50%]'>{songMessage}</div>
                 </motion.div>
             </div>  
             </div>
         </div>
         <div className='md:hidden block'>
-            <div className='bg-gradient-to-b to-dimred from-lightred h-screen w-screen overflow-hidden flex flex-col items-center justify-center'>
+            <div className='bg-gradient-to-b to-myred from-lightred h-screen w-screen overflow-hidden flex flex-col items-center justify-center'>
                 <motion.div 
                 variants={variants}
                 whileInView="animate"
@@ -64,7 +64,7 @@ export default function Song({songURL, songMessage}) {
                 className="">
                     <Spotify className='' link = {songURL}/>
                 </motion.div>
-                <div className='text-darkred text-center font-bold w-[70%]'>{songMessage}</div>
+                <div className='text-mywhite underline bold text-center font-bold w-[70%]'>{songMessage}</div>
             </div>
         </div>
         

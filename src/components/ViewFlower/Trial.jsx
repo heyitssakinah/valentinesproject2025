@@ -46,7 +46,7 @@ export default function Trial({photourl, photoMessage}) {
               />
             </div>
             <div>
-                <p>{photoMessage}</p>
+                <p className='underline bold' >{photoMessage}</p>
                 </div>
           </div>
         </motion.div>

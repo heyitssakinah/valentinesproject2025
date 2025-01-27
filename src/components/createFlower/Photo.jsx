@@ -79,6 +79,8 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
     }
   })
 
+  console.log("load", loading)
+
 
 
   return (
@@ -108,6 +110,18 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
             <div className='flex flex-col items-center w-screen h-screen'>
               <h1 className='mt-14 mb-10 text-2xl sm:text-3xl text-mywhite text-center mx-10' >You LOOK SO GOOD TOGETHER</h1>
               <img className={`${loading ? "hidden" : "max-w-[60%] max-h-[40%] mx-20 mb-4"}`} src={photoURL} onLoad={() => setLoadPhoto(false)}/>
+              <div className='max-w-[80%] text-center sm:max-w-[40%] bg-mywhite/10 text-mywhite py-3 rounded-2xl shadow-md px-6'>{message}</div>
+          <button
+            className="text-mywhite hover:text-mywhite/50 mb-16 mt-4 underline"
+            onClick={() => {
+              setTriggerEmbed(false)
+              setTriggerPopup(false)
+              setImage(null)
+              setURL('')
+              setMessage('')
+              setLoadPhoto(true)
+            }}
+          >Choose a different photo button</button>
               <div
           class={`${
             loading
@@ -131,18 +145,6 @@ function Photo({Name, submitAll, handleScroll, toRef, toPrevRef}) {
             Loading
           </button>
         </div>
-              <div className='max-w-[80%] text-center sm:max-w-[40%] bg-mywhite/10 text-mywhite py-3 rounded-2xl shadow-md px-6'>{message}</div>
-          <button
-            className="text-mywhite hover:text-mywhite/50 mb-16 mt-4 underline"
-            onClick={() => {
-              setTriggerEmbed(false)
-              setTriggerPopup(false)
-              setImage(null)
-              setURL('')
-              setMessage('')
-              setLoadPhoto(false)
-            }}
-          >Choose a different photo button</button>
           <div className='flex w-full space-x-[30%] justify-center'>
             <button 
             onClick={() => handleScroll(toPrevRef)}

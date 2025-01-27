@@ -187,7 +187,7 @@ export default function SecretHomePage() {
       </div>
 
       <div className="flex flex-col items-center justify-evenly h-screen w-screen snap-center snap-always">
-        <p className="text-mywhite block w-[80vw] sm:w-[60vw] sm:text-lg text-center">
+        <p className="text-mywhite block w-[90vw] sm:w-[60vw] sm:text-lg text-left sm:text-center">
         Welcome to Valentine Bouqeuts. This website was created to revive the
           spirit of appreaciating your friends-something often lost in the ferver
           of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. But really, t’s the small moments with friends—the laughter,
