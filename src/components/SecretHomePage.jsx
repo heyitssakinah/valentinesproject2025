@@ -33,7 +33,7 @@ export default function SecretHomePage() {
 
   //get persons with bouquet data
   useEffect(() => {
-    const db = getDatabase(app);
+    const db = getDatabase();
     // Reference to the specific collection in the database
     const dataref = ref(db, "Bouquets");
 
