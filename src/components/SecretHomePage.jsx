@@ -187,25 +187,14 @@ export default function SecretHomePage() {
       </div>
 
       <div className="flex flex-col items-center justify-evenly h-screen w-screen snap-center snap-always">
-        <p className="text-mywhite block w-[90vw] sm:w-[60vw] sm:text-lg text-left sm:text-center">
-        Welcome to Valentine Bouqeuts. This website was created to revive the
-          spirit of appreaciating your friends-something often lost in the ferver
-          of adulthood and romance. Sometimes its the people closest to us that we unintentionally take for granted. But really, it’s the small moments with friends—the laughter,
-          support, and shared memories that make everything truly worthwhile. 
-          <br></br><br></br>
-          Valentine
-          Bouquets is my way of encouraging everyone to take a moment to
-          celebrate these friendships and remind the people in your life just
-          how much they mean to you. Valentines belongs to everyone, not just
-          the lovers.
-          
-          So take time to show gratitude to your
-          friends, the ones you see only once a year and the ones you knew for a
-          fleeting moment on an overseas trip. Take time to say i love you to
-          your suitemates, your coursemates, and tutorial groups that hard carried you
-          last semester.
-          <br></br><br></br>
-          Love is sweetest, after all, when celebrated together.
+        <p className="text-mywhite block w-[90vw] sm:w-[60vw] sm:text-lg text-left">
+        Lately, I’ve been thinking about the friendships that have shaped me—the ones that feel effortless, the ones that slipped away too soon, the ones I should have appreciated more in the moment. Somewhere along the way, between deadlines and obligations, it became easier to assume that the people who mattered would always be there. That they knew. That words weren’t necessary.
+        <br></br><br></br>
+But they are.
+<br></br><br></br>
+I built this website as a small way to remind myself—and maybe you—that friendship deserves to be celebrated, not just remembered in passing. That Valentine’s Day isn’t just for romance but for the people who make life lighter: the friend who made you laugh when you needed it most, the suitemate who left the light on, the coursemate who pulled you through a tough semester. The ones you see every day and the ones who were part of your life for only a brief moment, but left something behind.
+<br></br><br></br>
+So take the time. Say it out loud. Not just in your head, not just in the spaces between messages left on read. Tell them they matter. Because they do. And because we don’t say it enough.
         
           <br></br>
           <br></br>
