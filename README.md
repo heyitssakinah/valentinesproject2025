@@ -3,6 +3,9 @@
 
 Valentine Bouquet is a fun and interactive web app that allows users to send personalized messages, memes, songs, and photos to someone special. Users can create a virtual bouquet by sending flowers to their loved ones, and these bouquets will be collated and sent to the recipient on Valentine's Day. This app uses React for the frontend, Firebase for backend services like storage, database, authentication, and hosting, and TailwindUI for styling.
 
+## ✨ Try it out !!!
+Access the Homepage [through this link](https://valentines-project-b2201.web.app/)\
+Access the Receiver Bouquet [through this link]
 ## 🎯 Features
 
 - **Create a Bouquet**: Send a "flower" to someone by adding your name to their bouquet.
