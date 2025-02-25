@@ -22,6 +22,7 @@ Access (a template of) the Receiver Bouquet [through this link](https://valentin
 - **React**: Frontend framework for building the user interface.
 - **Firebase**: Backend services for authentication, storage, and database management.
 - **TailwindUI**: Utility-first CSS framework for fast and responsive styling.
+- **Framer Motion**: A library for adding smooth and interactive animations to React components.
 
 ## 🚀 Getting Started
 
