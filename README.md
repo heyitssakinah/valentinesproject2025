@@ -10,8 +10,8 @@ Valentine Bouquet is a fun and interactive web app that allows users to send per
 ![HomePage](/Docs/Homepage.png)
 
 ## ✨ Try it out !!!
-Access the Homepage [through this link](https://valentines-project-b2201.web.app/) and create a bouquet for someone! \
-Access (a template of) the Receiver Bouquet [through this link](https://valentines-project-b2201.web.app/Bouquet/Testperson_8BE1A9F1-82BE-4FE5-9185-83769B75D272) 
+Check out the demo homepage [through this link](https://valentines-project-b2201.web.app/) and create a bouquet for someone! \
+Access a template of the Receiver Bouquet [through this link](https://valentines-project-b2201.web.app/Bouquet/Testperson_8BE1A9F1-82BE-4FE5-9185-83769B75D272) 
 
 ## 🎯 Features
 
