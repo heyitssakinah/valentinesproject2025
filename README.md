@@ -1,7 +1,7 @@
 # Valentine Bouquet 🌸
-> I created this app for fun! this was my fist ever web app :) completed through pure grit and determination. More adventures to come!
+> I created this app to facillitate community building (and for fun). This was my fist ever web app :) completed through pure grit and determination. More adventures to come!
 
-Valentine Bouquet is a fun and interactive web app that allows users to send personalized messages, memes, songs, and photos to someone special. Users can create a virtual bouquet by sending flowers to their loved ones, and these bouquets will be collated and sent to the recipient on Valentine's Day. This app uses React for the frontend, Firebase for backend services like storage, database, authentication, and hosting, and TailwindUI for styling.
+Valentine Bouquet is a fun and interactive web app that allows users to send personalized messages, memes, songs, and photos to someone special. Users can create a virtual bouquet by sending multimedia messages to their loved ones, and these bouquets will be collated and sent to the recipient on Valentine's Day. This app uses React for the frontend, Firebase for backend services like storage, database, authentication, and hosting, and TailwindUI for styling.
 
 ## How it looks !
 ![Summary Page](/Docs/FlowerSummary.png)
